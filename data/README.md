@@ -1,28 +1,32 @@
 # Rendered SSSOM data
 
-The rendered RDF is too large to store in git (TriG 1.5 GB + Turtle-star 3.7 GB), so it is
-**deposited on Zenodo** and downloaded from there.
+The **gzipped** renderings are committed to this folder via **Git LFS** (uncompressed they are
+TriG 1.5 GB + Turtle-star 3.7 GB; gzipped they fit):
 
-| File | Format | Uncompressed | Gzipped |
+| File | Format | Uncompressed | In repo (gzipped, LFS) |
 |---|---|---|---|
-| `sssom_all.trig` | Named graphs (TriG) — one graph per `mapping_set` | 1.5 GB | 87 MB |
-| `sssom_all.ttls` | RDF 1.2 / Turtle-star — per-mapping annotations | 3.7 GB | 204 MB |
+| `sssom_all.trig.gz` | Named graphs (TriG) — one graph per `mapping_set` | 1.5 GB | 87 MB |
+| `sssom_all.ttls.gz` | RDF 1.2 / Turtle-star — per-mapping annotations | 3.7 GB | 204 MB |
 
 Both cover the same **271 EBI OLS mapping sets / 6,238,000 mappings**.
 
-## Download
-
-> **Zenodo DOI:** `10.5281/zenodo.XXXXXXXX` — _TODO: replace with the real DOI once the
-> deposit is published._
+## Get them from this repo (Git LFS)
 
 ```bash
-# example once the record exists:
-curl -L -o sssom_all.trig.gz "https://zenodo.org/records/XXXXXXXX/files/sssom_all.trig.gz"
-curl -L -o sssom_all.ttls.gz "https://zenodo.org/records/XXXXXXXX/files/sssom_all.ttls.gz"
-gunzip sssom_all.trig.gz sssom_all.ttls.gz
+git lfs install          # once, if you don't have LFS
+git clone https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026.git
+# (or, in an existing clone:)  git lfs pull
+
+gunzip -k data/sssom_all.trig.gz data/sssom_all.ttls.gz
 ```
 
 Then load them into Oxigraph — see [`../OXIGRAPH.md`](../OXIGRAPH.md).
+
+## Citable archive (Zenodo)
+
+For a citable, version-pinned copy, the same gzipped files are also intended for Zenodo:
+
+> **Zenodo DOI:** `10.5281/zenodo.XXXXXXXX` — _TODO: replace with the real DOI once published._
 
 ## Depositing to Zenodo (maintainers)
 

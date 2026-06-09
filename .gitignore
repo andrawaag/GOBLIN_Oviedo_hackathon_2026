@@ -1,10 +1,9 @@
-# Rendered RDF — multi-GB, deposited on Zenodo, regenerable via scripts/sssom_serialize.py
+# Uncompressed rendered RDF — multi-GB, regenerable via scripts/sssom_serialize.py.
+# The GZIPPED versions (*.trig.gz / *.ttls.gz) ARE committed via Git LFS — see .gitattributes.
 sssom_all.trig
 sssom_all.ttls
 *.trig
 *.ttls
-*.trig.gz
-*.ttls.gz
 *.sssom.tsv
 
 # logs / scratch

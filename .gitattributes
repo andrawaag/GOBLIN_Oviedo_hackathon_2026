@@ -1,0 +1,2 @@
+*.trig.gz filter=lfs diff=lfs merge=lfs -text
+*.ttls.gz filter=lfs diff=lfs merge=lfs -text

@@ -82,8 +82,16 @@ identifiers stay valid RFC 3987 IRIs. Both outputs validate with a strict RDF 1.
 
 ## Data
 
-The rendered files are large (5.2 GB uncombined), so they are **deposited on Zenodo** rather
-than committed here. See [`data/README.md`](data/README.md).
+The **gzipped** renderings are committed under [`data/`](data/) via **Git LFS**
+(`sssom_all.trig.gz` 87 MB, `sssom_all.ttls.gz` 204 MB; ~5.2 GB uncompressed). Fetch with
+`git lfs pull` then `gunzip`. A citable Zenodo copy is also planned — see
+[`data/README.md`](data/README.md).
+
+## Schemas
+
+- [`docs/schema-named-graphs.md`](docs/schema-named-graphs.md) — mermaid diagram + ShEx
+- [`docs/schema-rdf12.md`](docs/schema-rdf12.md) — mermaid diagram + ShEx-*style* pseudo-syntax
+  (ShEx 2.1 has no RDF 1.2 triple-term support yet)
 
 ## License
 

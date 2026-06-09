@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rendering SSSOM as RDF — GOBLIN · Oviedo BioHackathon 2026</title>
+<title>SSSOM → RDF · GOBLIN · Oviedo BioHackathon 2026</title>
 <style>
   :root{
     --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2b3441;
@@ -13,264 +13,306 @@
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-       line-height:1.5;-webkit-font-smoothing:antialiased}
-  .slide{max-width:1180px;margin:0 auto;padding:38px 30px 80px}
-  header.hero{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:28px}
-  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
-          color:var(--accent)}
-  h1{font-size:38px;line-height:1.12;margin:8px 0 6px;font-weight:700}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+  .deck{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:auto;
+         padding:46px 56px 70px;transition:opacity .25s ease}
+  .slide.active{opacity:1;pointer-events:auto}
+  .wrap{max-width:1080px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:40px;line-height:1.1;margin:10px 0 8px;font-weight:750}
   h1 .star{color:var(--star)} h1 .graph{color:var(--graph)}
-  .sub{color:var(--muted);font-size:16px}
-  h2{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px}
-  h2 .n{font-family:var(--mono);font-size:14px;color:var(--accent2);
-        border:1px solid var(--line);border-radius:6px;padding:2px 8px}
-  p{margin:0 0 12px;color:#cdd6e0}
-  code,pre{font-family:var(--mono)}
-  code{background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:.9em;color:var(--accent2)}
-  pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  h2{font-size:27px;margin:0 0 18px;font-weight:700}
+  h2 .tag{font-family:var(--mono);font-size:13px;color:var(--accent2);border:1px solid var(--line);
+          border-radius:6px;padding:2px 9px;margin-right:10px;vertical-align:middle}
+  .sub{color:var(--muted);font-size:17px}
+  p{color:#cdd6e0;font-size:15.5px;line-height:1.55;margin:0 0 12px}
+  code{font-family:var(--mono);background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:.88em;color:var(--accent2)}
+  pre{font-family:var(--mono);background:var(--panel);border:1px solid var(--line);border-radius:10px;
       padding:14px 16px;overflow:auto;font-size:12.5px;color:#c9d3de;margin:0 0 12px}
-  pre .c{color:#6e7b8a} pre .k{color:var(--graph)} pre .s{color:var(--accent)}
+  pre .c{color:#6e7b8a}.k{color:var(--graph)}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
-  .card.graphc{border-top:3px solid var(--graph)} .card.starc{border-top:3px solid var(--star)}
-  .card h3{margin:0 0 4px;font-size:16px}
-  .card .tag{font-family:var(--mono);font-size:11px;color:var(--muted)}
-  .card ul{margin:12px 0 0;padding-left:18px} .card li{margin:5px 0;color:#cdd6e0;font-size:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .card.g{border-top:3px solid var(--graph)} .card.s{border-top:3px solid var(--star)}
+  .card h3{margin:0 0 4px;font-size:16px} .card .t{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .card ul{margin:10px 0 0;padding-left:18px} .card li{margin:5px 0;font-size:13.5px;color:#cdd6e0}
   .card li b{color:var(--ink)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-bottom:12px}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--accent2);font-family:var(--mono);font-weight:600}
+  th.gcol{color:var(--graph)} th.scol{color:var(--star)}
   .insight{background:linear-gradient(90deg,rgba(210,168,255,.10),rgba(255,166,87,.10));
-           border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:16px;font-size:15px}
+           border:1px solid var(--line);border-radius:12px;padding:13px 17px;font-size:15px}
   .insight b{color:var(--accent)}
-  .stats{display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 4px}
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0}
   .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:120px}
-  .stat .v{font-size:24px;font-weight:700;font-family:var(--mono)} .stat .l{font-size:12px;color:var(--muted)}
-  .pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 9px;border-radius:20px;
-        border:1px solid var(--line)} .done{color:var(--accent);border-color:#2c5}
-  .future{color:var(--warn);border-color:#7a6}
-  .demo label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px;font-family:var(--mono)}
+  .stat .v{font-size:25px;font-weight:700;font-family:var(--mono)} .stat .l{font-size:12px;color:var(--muted)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 9px;border-radius:20px;border:1px solid var(--line)}
+  .done{color:var(--accent);border-color:#2c5}.future{color:var(--warn);border-color:#7a6}
+  .mermaid{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
+  .two{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:start}
+  .note{font-size:12.5px;color:var(--warn);font-family:var(--mono);margin:6px 0}
+  a{color:var(--accent2)} .muted{color:var(--muted)}
+  .demo label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px;font-family:var(--mono)}
   .demo input,.demo textarea,.demo select{width:100%;background:var(--bg);color:var(--ink);
-    border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-family:var(--mono);font-size:12.5px}
-  .demo textarea{min-height:118px;resize:vertical}
-  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
-  button{background:var(--accent);color:#06210d;border:0;border-radius:8px;padding:10px 18px;
-         font-weight:700;cursor:pointer;font-size:14px} button:hover{filter:brightness(1.08)}
+    border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:var(--mono);font-size:12px}
+  .demo textarea{min-height:96px;resize:vertical}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+  button{background:var(--accent);color:#06210d;border:0;border-radius:8px;padding:9px 16px;font-weight:700;cursor:pointer}
   button.ghost{background:transparent;color:var(--accent2);border:1px solid var(--line);font-weight:600}
   #status{font-family:var(--mono);font-size:12px;color:var(--muted)}
-  .results{margin-top:14px;overflow:auto;max-height:340px;border:1px solid var(--line);border-radius:10px}
-  table{border-collapse:collapse;width:100%;font-size:12.5px}
-  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
-  th{position:sticky;top:0;background:var(--panel2);color:var(--accent2);font-family:var(--mono)}
-  td{font-family:var(--mono);color:#c9d3de;max-width:520px;overflow:hidden;text-overflow:ellipsis}
-  a{color:var(--accent2)} .muted{color:var(--muted)}
-  footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;
-         display:flex;gap:22px;flex-wrap:wrap;font-size:13px}
-  @media(max-width:760px){.grid2{grid-template-columns:1fr}h1{font-size:28px}}
+  .results{margin-top:10px;overflow:auto;max-height:200px;border:1px solid var(--line);border-radius:8px}
+  .results th{position:sticky;top:0;background:var(--panel2)} .results td{font-family:var(--mono);font-size:11.5px;max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* chrome */
+  .nav{position:fixed;bottom:16px;right:20px;display:flex;gap:8px;align-items:center;z-index:10}
+  .nav button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);padding:6px 12px;font-weight:600}
+  .count{position:fixed;bottom:20px;left:24px;font-family:var(--mono);font-size:12px;color:var(--muted);z-index:10}
+  .dots{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}
+  .dot.on{background:var(--accent)}
+  .brand{position:fixed;top:14px;right:22px;font-family:var(--mono);font-size:11px;color:var(--muted);z-index:10}
 </style>
 </head>
 <body>
-<main class="slide">
+<div class="brand">GOBLIN · Oviedo BioHackathon 2026</div>
+<div class="deck" id="deck">
 
-  <header class="hero">
-    <div class="kicker">GOBLIN · Oviedo BioHackathon 2026</div>
-    <h1>Rendering SSSOM mappings as <span class="graph">RDF named graphs</span> &amp; <span class="star">RDF&nbsp;1.2</span></h1>
-    <div class="sub">Two faithful RDF serializations of ontology mappings — and a live SPARQL view over them.</div>
-  </header>
+  <!-- 1 — Title -->
+  <section class="slide active"><div class="wrap" style="padding-top:8vh">
+    <div class="kicker">GOBLIN · Oviedo BioHackathon 2026 · short update</div>
+    <h1>SSSOM → RDF<br><span class="graph">Named graphs</span> &amp; <span class="star">RDF&nbsp;1.2</span></h1>
+    <p class="sub">Rendering ontology mappings as two complementary RDF serializations,
+       served with Oxigraph and browsed with Comunica.</p>
+    <p class="muted" style="margin-top:24px;font-size:13px">← → arrows to navigate</p>
+  </div></section>
 
-  <!-- 1 -->
-  <h2><span class="n">1</span> What is SSSOM?</h2>
-  <p><b>SSSOM</b> — the <i>Simple Standard for Sharing Ontological Mappings</i> — is a lightweight standard
-     for publishing mappings between ontology terms (e.g. <code>MONDO:0000001 ↔ DOID:4</code>).
-     Its native serialization is a <b>hybrid of TSV and YAML</b>: a TSV table is the main payload, and the
-     mapping-set metadata is a YAML block carried in the TSV's leading comment (<code>#</code>) lines.</p>
-  <pre><span class="c"># mapping_set_id: https://w3id.org/commons/ols/mappings/mondo.ols.sssom.tsv   </span><span class="c">← YAML header</span>
+  <!-- 2 — SSSOM -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">1</span>What is SSSOM?</h2>
+    <p><b>SSSOM</b> — <i>Simple Standard for Sharing Ontological Mappings</i>. Its native serialization
+       is a <b>hybrid of TSV and YAML</b>: a TSV table of mappings, with the set-level metadata
+       (provenance, confidence, the <code>curie_map</code>) carried as a <b>YAML block in the TSV's
+       leading <code>#</code> comment lines</b>.</p>
+    <pre><span class="c"># mapping_set_id: https://w3id.org/commons/ols/mappings/mondo.ols.sssom.tsv  ← YAML header</span>
 <span class="c"># mapping_set_confidence: '0.7'</span>
 <span class="c"># curie_map:</span>
 <span class="c">#   MONDO: http://purl.obolibrary.org/obo/MONDO_</span>
 <span class="c">#   DOID:  http://purl.obolibrary.org/obo/DOID_</span>
-subject_id   predicate_id          object_id   mapping_justification        <span class="c">← TSV table</span>
-MONDO:0000001  oboInOwl:hasDbXref  DOID:4      semapv:UnspecifiedMatching</pre>
+subject_id     predicate_id        object_id  mapping_justification       <span class="c">← TSV table</span>
+MONDO:0000001  oboInOwl:hasDbXref  DOID:4     semapv:UnspecifiedMatching</pre>
+    <p class="muted" style="font-size:13.5px">We wrote a streaming serializer: parse the YAML header,
+       expand every CURIE to a full IRI, percent-encode local parts (SMILES/InChI safety), emit RDF.</p>
+  </div></section>
 
-  <!-- 2 -->
-  <h2><span class="n">2</span> Two renderings — the design choice</h2>
-  <p>A mapping is, ontologically, <i>a statement about a statement</i>. The two RDF approaches attach that
-     metadata at <b>different layers of the RDF stack</b>:</p>
-  <div class="grid2">
-    <div class="card graphc">
-      <h3 style="color:var(--graph)">Named graphs · TriG</h3>
-      <div class="tag">RDF 1.1 dataset / context layer → quads</div>
-      <ul>
-        <li><b>Granularity:</b> one named graph per <code>mapping_set</code> (graph IRI = <code>mapping_set_id</code>)</li>
-        <li><b>Carries:</b> set-level provenance (source, confidence) on the graph</li>
-        <li><b>Semantics:</b> dataset semantics <i>undefined</i> by spec → provenance is a convention</li>
-        <li><b>Tooling:</b> universal — plain SPARQL 1.1 <code>GRAPH ?g {…}</code></li>
-        <li><b>Trade-off:</b> per-mapping justification is <i>not</i> attached</li>
-        <li><b>Models:</b> <code>sssom:MappingSet</code></li>
-      </ul>
-    </div>
-    <div class="card starc">
-      <h3 style="color:var(--star)">RDF 1.2 · Turtle-star</h3>
-      <div class="tag">abstract-syntax layer → triple terms</div>
-      <ul>
-        <li><b>Granularity:</b> per mapping — each triple annotated <code>{| … |}</code></li>
-        <li><b>Carries:</b> justification + subject/object labels per mapping — <b>lossless</b></li>
-        <li><b>Semantics:</b> <i>defined</i>; triple term is opaque &amp; non-asserting (<code>rdf:reifies</code>)</li>
-        <li><b>Tooling:</b> needs an RDF-star engine (rdflib can't even parse it — Oxigraph can)</li>
-        <li><b>Trade-off:</b> ~5× statement blow-up (6.2M → 34M)</li>
-        <li><b>Models:</b> <code>sssom:Mapping</code></li>
-      </ul>
-    </div>
-  </div>
-  <div class="insight"><b>Key insight:</b> named graph ↔ <code>MappingSet</code>, triple term ↔ <code>Mapping</code>.
-     They model <i>different layers</i> — so they compose rather than compete. The named-graph file is the
-     portable, partition-by-source view; the RDF 1.2 file is the lossless, per-mapping master.</div>
+  <!-- 3 — Two renderings -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">2</span>Two renderings — the design choice</h2>
+    <p>A mapping is <i>a statement about a statement</i>. The two approaches attach that metadata at
+       <b>different layers of the RDF stack</b>:</p>
+    <table>
+      <tr><th></th><th class="gcol">Named graphs (TriG)</th><th class="scol">RDF 1.2 (Turtle-star)</th></tr>
+      <tr><td><b>Layer</b></td><td>dataset / context → quads</td><td>abstract syntax → triple terms</td></tr>
+      <tr><td><b>Granularity</b></td><td>one graph per <code>mapping_set</code></td><td>per mapping (<code>{| … |}</code>)</td></tr>
+      <tr><td><b>Carries</b></td><td>set-level provenance</td><td>justification + labels (<b>lossless</b>)</td></tr>
+      <tr><td><b>Semantics</b></td><td><i>undefined</i> by spec (convention)</td><td><i>defined</i>; opaque, non-asserting</td></tr>
+      <tr><td><b>Tooling</b></td><td>universal — SPARQL 1.1 <code>GRAPH</code></td><td>needs RDF-star engine (Oxigraph)</td></tr>
+      <tr><td><b>Cost</b></td><td>~1 quad / mapping</td><td>~5× blow-up (6.2M→34M)</td></tr>
+      <tr><td><b>Models</b></td><td><code>sssom:MappingSet</code></td><td><code>sssom:Mapping</code></td></tr>
+    </table>
+    <div class="insight"><b>Key insight:</b> named graph ↔ <code>MappingSet</code>, triple term ↔ <code>Mapping</code> —
+       different layers, so they <b>compose</b> rather than compete.</div>
+  </div></section>
 
-  <!-- 3 -->
-  <h2><span class="n">3</span> Sources</h2>
-  <div class="grid2">
-    <div class="card">
-      <h3><span class="pill done">DONE</span> &nbsp;EBI OLS</h3>
-      <p class="muted" style="font-size:14px">The EBI Ontology Lookup Service (OLS4) publishes per-ontology
-         SSSOM extracts. We rendered the full set into both formats.</p>
-      <div class="stats">
-        <div class="stat"><div class="v">271</div><div class="l">mapping sets</div></div>
-        <div class="stat"><div class="v">6.24M</div><div class="l">mappings</div></div>
-        <div class="stat"><div class="v">~91s</div><div class="l">to render both</div></div>
+  <!-- 4 — Named-graph schema -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">3</span><span class="graph">Schema</span> — named graphs (TriG)</h2>
+    <div class="two">
+      <div class="mermaid">
+flowchart LR
+  subgraph DG["Default graph"]
+    MS["sssom:MappingSet<br/>· mapping_set_id ·"]
+  end
+  MS -->|"mapping_set_confidence"| CONF["xsd:decimal"]
+  MS -->|"mapping_set_source"| SRC["IRI"]
+  MS -->|"mapping_set_group"| GRP["xsd:string"]
+  subgraph NG["Named graph — name = mapping_set_id"]
+    S["subject_id<br/>IRI"] -->|"predicate_id<br/>skos:exactMatch / oboInOwl:hasDbXref"| O["object_id<br/>IRI"]
+  end
+  MS -.->|"graph name ≡ set IRI"| NG
       </div>
-      <p class="muted" style="font-size:13px;margin-top:10px">TriG 1.5 GB · Turtle-star 3.7 GB →
-         archived on Zenodo (87 MB / 204 MB gzipped).</p>
+      <div>
+        <p class="muted" style="font-size:13px">Valid <b>ShEx</b> — the per-set resource and the mapped
+           term. (The graph grouping itself is dataset-level, not expressible in ShEx.)</p>
+        <pre><span class="k">PREFIX</span> sssom: &lt;https://w3id.org/sssom/&gt;
+<span class="k">PREFIX</span> skos:  &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+&lt;MappingSetShape&gt; {                 <span class="c"># default graph</span>
+  a [ sssom:MappingSet ] ;
+  sssom:mapping_set_confidence xsd:decimal ? ;
+  sssom:mapping_set_source     IRI ? ;
+  sssom:mapping_set_group      xsd:string ?
+}
+&lt;MappedTermShape&gt; {                  <span class="c"># inside a named graph</span>
+  ( skos:exactMatch
+  | skos:closeMatch
+  | oboInOwl:hasDbXref ) IRI +
+}</pre>
+      </div>
     </div>
-    <div class="card">
-      <h3><span class="pill future">FUTURE WORK</span> &nbsp;Wikidata</h3>
-      <p class="muted" style="font-size:14px">We began extracting ontology cross-references from
-         <b>Wikidata</b> (a natural mapping hub via external-ID properties) and emitting them as SSSOM.
-         Not finished within the hackathon — left as future work.</p>
-      <p class="muted" style="font-size:13px">Comunica federation makes the join natural: query the local
-         Oxigraph endpoint <i>and</i> the Wikidata SPARQL endpoint together.</p>
+  </div></section>
+
+  <!-- 5 — RDF 1.2 schema -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">4</span><span class="star">Schema</span> — RDF 1.2 (ShEx-style)</h2>
+    <p class="note">⚠ ShEx 2.1 has no triple-term / <code>rdf:reifies</code> construct yet — the shape below is
+       <b>ShEx-style pseudo-syntax</b>, and the diagram is drawn in ShEx shape style.</p>
+    <div class="two">
+      <div class="mermaid">
+flowchart TB
+  R(["@MappingReifierShape<br/>reifier _:r"])
+  R -->|"rdf:reifies"| TT["RDF 1.2 triple term<br/>( subject predicate object )<br/>opaque · non-asserting"]
+  R -->|"mapping_justification"| J["[ semapv:~ ]"]
+  R -->|"subject_label ?"| SL["xsd:string"]
+  R -->|"object_label ?"| OL["xsd:string"]
+  R -->|"mapping_set"| MSS(["@MappingSetShape"])
+  subgraph A["asserted separately"]
+    S["subject : IRI"] -->|"predicate"| O["object : IRI"]
+  end
+  TT -.->|"denotes"| A
+      </div>
+      <div>
+        <pre><span class="c"># pseudo-ShEx (RDF 1.2 not yet in ShEx)</span>
+<span class="k">PREFIX</span> sssom:  &lt;https://w3id.org/sssom/&gt;
+<span class="k">PREFIX</span> semapv: &lt;https://w3id.org/semapv/vocab/&gt;
+<span class="k">PREFIX</span> rdf:    &lt;...22-rdf-syntax-ns#&gt;
+
+&lt;MappingReifierShape&gt; {
+  rdf:reifies  TRIPLE_TERM ;           <span class="c"># &lt;&lt;( s p o )&gt;&gt;</span>
+  sssom:mapping_justification [ semapv:~ ] ;
+  sssom:subject_label  xsd:string ? ;
+  sssom:object_label   xsd:string ? ;
+  sssom:mapping_set    @&lt;MappingSetShape&gt;
+}</pre>
+        <p class="muted" style="font-size:12.5px">Each mapping triple is asserted <i>and</i> annotated:
+           a reifier links to the opaque triple term and hangs the per-mapping metadata.</p>
+      </div>
     </div>
-  </div>
+  </div></section>
 
-  <!-- 4 -->
-  <h2><span class="n">4</span> Live view — Comunica over a SPARQL endpoint</h2>
-  <p><a href="https://comunica.dev/">Comunica</a> is a modular SPARQL engine that runs <b>in the browser</b>.
-     It can't hold 5 GB of RDF itself — instead it queries a <b>SPARQL endpoint</b> (your Oxigraph, see §5)
-     and can <i>federate</i> across several (e.g. OLS + Wikidata). Point it at your endpoint and run:</p>
-  <div class="demo card">
-    <label for="ep">SPARQL endpoint (your running Oxigraph)</label>
-    <input id="ep" value="http://localhost:7878/query">
-    <label for="preset">Preset query</label>
-    <select id="preset">
-      <option value="graph">Named graphs — mappings grouped by source graph</option>
-      <option value="star">RDF 1.2 — mappings with their per-mapping justification</option>
-      <option value="sets">List the mapping sets and their confidence</option>
-    </select>
-    <label for="q">SPARQL</label>
-    <textarea id="q"></textarea>
-    <div class="row">
-      <button id="run">▶ Run query</button>
-      <button id="reset" class="ghost">Reset preset</button>
-      <span id="status">idle</span>
+  <!-- 6 — Sources -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">5</span>Sources &amp; status</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3><span class="pill done">DONE</span> &nbsp;EBI OLS</h3>
+        <p class="muted" style="font-size:14px">OLS4 publishes per-ontology SSSOM extracts. Full set
+           rendered into both formats.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">271</div><div class="l">mapping sets</div></div>
+          <div class="stat"><div class="v">6.24M</div><div class="l">mappings</div></div>
+          <div class="stat"><div class="v">~91s</div><div class="l">both formats</div></div>
+        </div>
+        <p class="muted" style="font-size:13px">TriG 1.5 GB · Turtle-star 3.7 GB → on Zenodo (87 / 204 MB gz).</p>
+      </div>
+      <div class="card">
+        <h3><span class="pill future">FUTURE WORK</span> &nbsp;Wikidata</h3>
+        <p class="muted" style="font-size:14px">Began extracting ontology cross-references from
+           <b>Wikidata</b> as SSSOM; not finished in time.</p>
+        <p class="muted" style="font-size:13px">Comunica <b>federation</b> makes the join natural:
+           query local Oxigraph <i>and</i> the Wikidata endpoint together.</p>
+      </div>
     </div>
-    <div class="results"><table id="out"><thead></thead><tbody></tbody></table></div>
-  </div>
+  </div></section>
 
-  <!-- 5 -->
-  <h2><span class="n">5</span> Why Oxigraph</h2>
-  <p><a href="https://github.com/oxigraph/oxigraph">Oxigraph</a> is the store that makes this work, for three
-     reasons: <b>(1)</b> it natively parses <i>and</i> queries <b>RDF 1.2 / RDF-star</b> — most stores (and
-     rdflib) cannot; <b>(2)</b> it's a Rust engine fast enough to load the multi-GB files; <b>(3)</b> it serves
-     a standard SPARQL endpoint that Comunica queries. Spin it up:</p>
-  <pre><span class="c"># install</span>
-<span class="k">cargo</span> install oxigraph-cli       <span class="c"># or: pip install pyoxigraph / docker pull ghcr.io/oxigraph/oxigraph</span>
+  <!-- 7 — Stack + demo -->
+  <section class="slide"><div class="wrap">
+    <h2><span class="tag">6</span>Stack — Oxigraph + Comunica</h2>
+    <p><b>Oxigraph</b> (Rust) is the only store in the loop that <i>parses &amp; queries RDF 1.2/RDF-star</i>
+       and scales to the GB files; it serves a SPARQL endpoint. <b>Comunica</b> (browser) queries that
+       endpoint and renders results — and can federate across many. Live box (needs a running Oxigraph):</p>
+    <div class="demo card">
+      <label for="ep">SPARQL endpoint</label><input id="ep" value="http://localhost:7878/query">
+      <label for="preset">Preset</label>
+      <select id="preset">
+        <option value="graph">Named graphs — mappings by source graph</option>
+        <option value="star">RDF 1.2 — mappings with justification</option>
+        <option value="sets">Mapping sets &amp; confidence</option>
+      </select>
+      <label for="q">SPARQL</label><textarea id="q"></textarea>
+      <div class="row"><button id="run">▶ Run</button><button id="reset" class="ghost">Reset</button><span id="status">idle</span></div>
+      <div class="results"><table id="out"><thead></thead><tbody></tbody></table></div>
+    </div>
+  </div></section>
 
-<span class="c"># load the named-graph rendering (quads → dataset)</span>
-<span class="k">oxigraph</span> load   --location ./data --file sssom_all.trig
-<span class="c"># …or the RDF 1.2 rendering into a separate store (Oxigraph keeps the triple terms)</span>
-<span class="k">oxigraph</span> load   --location ./data-star --file sssom_all.ttls
+  <!-- 8 — Links -->
+  <section class="slide"><div class="wrap" style="padding-top:10vh">
+    <h2>Recap &amp; links</h2>
+    <p>✅ SSSOM (TSV+YAML) → <span class="graph">named graphs</span> <b>and</b> <span class="star">RDF 1.2</span>,
+       both validated · 271 OLS sets / 6.24M mappings · schemas drawn (ShEx + ShEx-style) ·
+       served via Oxigraph, queried via Comunica · 🔭 Wikidata next.</p>
+    <ul style="font-size:15px;line-height:2">
+      <li>🐙 <a href="https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026">github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026</a></li>
+      <li>📦 Data (Zenodo): see <a href="../data/README.md">data/README.md</a></li>
+      <li>⚙️ <a href="../OXIGRAPH.md">OXIGRAPH.md</a> · 🔎 <a href="../COMUNICA.md">COMUNICA.md</a></li>
+      <li>📐 Schemas: <a href="../docs/schema-named-graphs.md">named graphs</a> · <a href="../docs/schema-rdf12.md">RDF 1.2</a></li>
+    </ul>
+  </div></section>
 
-<span class="c"># serve a SPARQL endpoint (CORS-enabled) at http://localhost:7878/query</span>
-<span class="k">oxigraph</span> serve  --location ./data --bind 127.0.0.1:7878</pre>
-  <p class="muted" style="font-size:13px">Full instructions:
-     <a href="../OXIGRAPH.md">OXIGRAPH.md</a> · <a href="../COMUNICA.md">COMUNICA.md</a></p>
+</div>
 
-  <footer>
-    <span>🐙 <a href="https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026">GitHub repo</a></span>
-    <span>📦 <a href="../data/README.md">Zenodo data</a></span>
-    <span>🔎 <a href="https://comunica.dev/">Comunica</a></span>
-    <span>⚙️ <a href="https://github.com/oxigraph/oxigraph">Oxigraph</a></span>
-    <span class="muted">SSSOM → RDF · Oviedo BioHackathon 2026</span>
-  </footer>
-</main>
+<div class="count" id="count"></div>
+<div class="dots" id="dots"></div>
+<div class="nav"><button id="prev">‹ Prev</button><button id="next">Next ›</button></div>
 
-<!-- Comunica SPARQL engine (browser build) -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script src="https://rdf.js.org/comunica-browser/versions/latest/engines/query-sparql/comunica-browser.js"></script>
 <script>
-const PRESETS = {
-  graph:
-`SELECT ?graph ?subject ?predicate ?object WHERE {
-  GRAPH ?graph { ?subject ?predicate ?object }
-}
-LIMIT 25`,
-  star:
-`PREFIX sssom: <https://w3id.org/sssom/>
-SELECT ?subject ?predicate ?object ?justification WHERE {
-  ?subject ?predicate ?object .
-  ?r rdf:reifies <<( ?subject ?predicate ?object )>> .
-  ?r sssom:mapping_justification ?justification .
-}
-LIMIT 25`,
-  sets:
-`PREFIX sssom: <https://w3id.org/sssom/>
-SELECT ?set ?confidence ?source WHERE {
-  ?set a sssom:MappingSet .
-  OPTIONAL { ?set sssom:mapping_set_confidence ?confidence }
-  OPTIONAL { ?set sssom:mapping_set_source ?source }
-}
-LIMIT 50`
-};
-const $ = id => document.getElementById(id);
-function loadPreset(){ $('q').value = PRESETS[$('preset').value]; }
-$('preset').addEventListener('change', loadPreset);
-$('reset').addEventListener('click', loadPreset);
-loadPreset();
+  if (window.mermaid) mermaid.initialize({startOnLoad:true, theme:'dark',
+    themeVariables:{fontFamily:'SF Mono, monospace', fontSize:'13px',
+      primaryColor:'#1c2330', primaryBorderColor:'#2b3441', primaryTextColor:'#e6edf3',
+      lineColor:'#6e7b8a', tertiaryColor:'#161b22'}});
 
-function setStatus(t){ $('status').textContent = t; }
-function clearTable(){ $('out').querySelector('thead').innerHTML='';
-                       $('out').querySelector('tbody').innerHTML=''; }
+  // ---- deck navigation ----
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsEl=document.getElementById('dots'); let cur=0;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i?'':' on');
+    d.onclick=()=>go(i);dotsEl.appendChild(d);});
+  const dots=[...document.querySelectorAll('.dot')];
+  function go(i){cur=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===cur));
+    document.getElementById('count').textContent=(cur+1)+' / '+slides.length;}
+  document.getElementById('next').onclick=()=>go(cur+1);
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')go(cur+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(cur-1);});
+  go(0);
 
-$('run').addEventListener('click', async () => {
-  clearTable();
-  if (typeof Comunica === 'undefined') {
-    setStatus('⚠ Comunica failed to load (offline?) — copy the query into your own client.');
-    return;
-  }
-  const endpoint = $('ep').value.trim();
-  const query = $('q').value;
-  setStatus('querying ' + endpoint + ' …');
-  try {
-    const engine = new Comunica.QueryEngine();
-    const stream = await engine.queryBindings(query, {
-      sources: [{ type: 'sparql', value: endpoint }]
-    });
-    let vars = null, n = 0;
-    const tb = $('out').querySelector('tbody');
-    stream.on('data', (b) => {
-      if (!vars) {
-        vars = [...b.keys()].map(k => k.value);
-        $('out').querySelector('thead').innerHTML =
-          '<tr>' + vars.map(v => '<th>'+v+'</th>').join('') + '</tr>';
-      }
-      const tr = document.createElement('tr');
-      tr.innerHTML = vars.map(v => {
-        const t = b.get(v); return '<td title="'+(t?t.value:'')+'">'+(t?t.value:'')+'</td>';
-      }).join('');
-      tb.appendChild(tr); n++;
-    });
-    stream.on('end', () => setStatus('✔ '+n+' rows'));
-    stream.on('error', (e) => setStatus('✖ '+e.message));
-  } catch (e) {
-    setStatus('✖ '+e.message+'  (is Oxigraph running & CORS-enabled?)');
-  }
-});
+  // ---- Comunica demo ----
+  const PRESETS={
+    graph:`SELECT ?graph ?subject ?predicate ?object WHERE {\n  GRAPH ?graph { ?subject ?predicate ?object }\n} LIMIT 25`,
+    star:`PREFIX sssom: <https://w3id.org/sssom/>\nSELECT ?subject ?predicate ?object ?justification WHERE {\n  ?subject ?predicate ?object .\n  ?r rdf:reifies <<( ?subject ?predicate ?object )>> .\n  ?r sssom:mapping_justification ?justification .\n} LIMIT 25`,
+    sets:`PREFIX sssom: <https://w3id.org/sssom/>\nSELECT ?set ?confidence ?source WHERE {\n  ?set a sssom:MappingSet .\n  OPTIONAL { ?set sssom:mapping_set_confidence ?confidence }\n  OPTIONAL { ?set sssom:mapping_set_source ?source }\n} LIMIT 50`};
+  const $=id=>document.getElementById(id);
+  const loadPreset=()=>$('q').value=PRESETS[$('preset').value];
+  $('preset').onchange=loadPreset; $('reset').onclick=loadPreset; loadPreset();
+  $('run').onclick=async()=>{
+    $('out').querySelector('thead').innerHTML=''; $('out').querySelector('tbody').innerHTML='';
+    if(typeof Comunica==='undefined'){$('status').textContent='⚠ Comunica not loaded (offline?)';return;}
+    const ep=$('ep').value.trim(); $('status').textContent='querying '+ep+' …';
+    try{
+      const engine=new Comunica.QueryEngine();
+      const stream=await engine.queryBindings($('q').value,{sources:[{type:'sparql',value:ep}]});
+      let vars=null,n=0; const tb=$('out').querySelector('tbody');
+      stream.on('data',b=>{ if(!vars){vars=[...b.keys()].map(k=>k.value);
+          $('out').querySelector('thead').innerHTML='<tr>'+vars.map(v=>'<th>'+v+'</th>').join('')+'</tr>';}
+        const tr=document.createElement('tr');
+        tr.innerHTML=vars.map(v=>{const t=b.get(v);return '<td title="'+(t?t.value:'')+'">'+(t?t.value:'')+'</td>';}).join('');
+        tb.appendChild(tr);n++;});
+      stream.on('end',()=>$('status').textContent='✔ '+n+' rows');
+      stream.on('error',e=>$('status').textContent='✖ '+e.message);
+    }catch(e){$('status').textContent='✖ '+e.message+'  (Oxigraph running & CORS on?)';}
+  };
 </script>
 </body>
 </html>
