@@ -81,7 +81,7 @@ docs/schema-rdf12.md         Schema (mermaid + ShEx-style) for the RDF 1.2 rende
 scripts/sssom_serialize.py   Streaming SSSOM-TSV → TriG + Turtle-star serializer (LLM-generated)
 COMUNICA.md                  How to query the renderings with Comunica
 OXIGRAPH.md                  How to load & serve the renderings with Oxigraph
-data/README.md               How to get the rendered RDF (Git LFS / Zenodo)
+data/README.md               How to get the rendered RDF (Git LFS)
 CITATION.cff                 Citation metadata (authors, ORCID, affiliation)
 ```
 
@@ -100,8 +100,7 @@ identifiers stay valid RFC 3987 IRIs. Both outputs validate with a strict RDF 1.
 
 The **gzipped** renderings are committed under [`data/`](data/) via **Git LFS**
 (`sssom_all.trig.gz` 87 MB, `sssom_all.ttls.gz` 204 MB; ~5.2 GB uncompressed). Fetch with
-`git lfs pull` then `gunzip`. A citable Zenodo copy is also planned — see
-[`data/README.md`](data/README.md).
+`git lfs pull` then `gunzip` — see [`data/README.md`](data/README.md).
 
 ## Schemas
 

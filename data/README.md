@@ -22,23 +22,6 @@ gunzip -k data/sssom_all.trig.gz data/sssom_all.ttls.gz
 
 Then load them into Oxigraph — see [`../OXIGRAPH.md`](../OXIGRAPH.md).
 
-## Citable archive (Zenodo)
-
-For a citable, version-pinned copy, the same gzipped files are also intended for Zenodo:
-
-> **Zenodo DOI:** `10.5281/zenodo.XXXXXXXX` — _TODO: replace with the real DOI once published._
-
-## Depositing to Zenodo (maintainers)
-
-1. Create a new record at <https://zenodo.org/uploads/new>.
-2. Upload `sssom_all.trig.gz` and `sssom_all.ttls.gz` (already gzipped locally).
-3. Suggested metadata:
-   - **Title:** SSSOM (EBI OLS) rendered as RDF named graphs and RDF 1.2
-   - **Upload type:** Dataset
-   - **Keywords:** SSSOM, ontology mappings, RDF-star, RDF 1.2, named graphs, OLS, GOBLIN
-   - **Related identifier:** *is supplement to* `https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026`
-4. Publish, then replace the placeholder DOI above and the URLs in this file.
-
 ## Regenerate from source instead
 
 If you'd rather not download, regenerate from the OLS SSSOM TSV extracts:

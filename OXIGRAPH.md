@@ -22,11 +22,13 @@ docker pull ghcr.io/oxigraph/oxigraph       # container
 
 ## Get the data
 
-Download the gzipped renderings from Zenodo (see [`data/README.md`](data/README.md)) and unzip:
+The gzipped renderings are in [`data/`](data/) (Git LFS) — see [`data/README.md`](data/README.md).
+Fetch and unzip:
 
 ```bash
-gunzip sssom_all.trig.gz      # → sssom_all.trig  (named graphs, 1.5 GB)
-gunzip sssom_all.ttls.gz      # → sssom_all.ttls  (RDF 1.2 / Turtle-star, 3.7 GB)
+git lfs pull                       # if files are LFS pointers after clone
+gunzip -k data/sssom_all.trig.gz   # → sssom_all.trig  (named graphs, 1.5 GB)
+gunzip -k data/sssom_all.ttls.gz   # → sssom_all.ttls  (RDF 1.2 / Turtle-star, 3.7 GB)
 ```
 
 ## Load
