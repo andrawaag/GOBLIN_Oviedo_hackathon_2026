@@ -1,0 +1,13 @@
+# Rendered RDF — multi-GB, deposited on Zenodo, regenerable via scripts/sssom_serialize.py
+sssom_all.trig
+sssom_all.ttls
+*.trig
+*.ttls
+*.trig.gz
+*.ttls.gz
+*.sssom.tsv
+
+# logs / scratch
+*.log
+__pycache__/
+.DS_Store
