@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "SSSOM rendered as RDF named graphs and RDF 1.2"
+abstract: >-
+  Rendering SSSOM ontology-mapping sets into two complementary RDF
+  serializations — named graphs (TriG) and RDF 1.2 (Turtle-star triple
+  terms) — with tooling to serve them via Oxigraph and query them via
+  Comunica. Produced at the GOBLIN track of the Oviedo BioHackathon 2026.
+type: software
+authors:
+  # NOTE: please verify the ORCID iDs below before publishing/citing.
+  - family-names: Waagmeester
+    given-names: Andra
+    orcid: "https://orcid.org/0000-0001-9773-4008"
+    affiliation: "Amsterdam UMC"
+  - family-names: Bolleman
+    given-names: Jerven
+    orcid: "https://orcid.org/0000-0002-7449-1266"
+    affiliation: "SIB Swiss Institute of Bioinformatics"
+repository-code: "https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026"
+license: MIT
+date-released: "2026-06-09"
+keywords:
+  - SSSOM
+  - ontology mappings
+  - RDF 1.2
+  - RDF-star
+  - named graphs
+  - triple terms
+  - Oxigraph
+  - Comunica
+  - OLS
+  - Wikidata
