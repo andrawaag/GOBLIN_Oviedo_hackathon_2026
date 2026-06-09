@@ -17,6 +17,13 @@ authors:
     given-names: Jerven
     orcid: "https://orcid.org/0000-0002-7449-1266"
     affiliation: "SIB Swiss Institute of Bioinformatics"
+  - family-names: Taelman
+    given-names: Ruben
+    orcid: "https://orcid.org/0000-0001-5118-256X"
+    affiliation: "IDLab, Ghent University – imec"
+  - family-names: Pellissier Tanon
+    given-names: Thomas
+    # TODO: add ORCID and affiliation
 repository-code: "https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026"
 license: MIT
 date-released: "2026-06-09"

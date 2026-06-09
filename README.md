@@ -17,8 +17,10 @@ RDF serializations, then serves them for SPARQL querying via
 
 - **Andra Waagmeester** — [0000-0001-9773-4008](https://orcid.org/0000-0001-9773-4008) · Amsterdam UMC
 - **Jerven Bolleman** — [0000-0002-7449-1266](https://orcid.org/0000-0002-7449-1266) · SIB Swiss Institute of Bioinformatics
+- **Ruben Taelman** — [0000-0001-5118-256X](https://orcid.org/0000-0001-5118-256X) · IDLab, Ghent University – imec
+- **Thomas Pellissier Tanon** — affiliation to be confirmed
 
-_(ORCID iDs to be confirmed — see `CITATION.cff`.)_
+_(ORCID iDs / affiliations to be confirmed — see `CITATION.cff`.)_
 
 👉 **Slide / demo:** [`docs/index.html`](docs/index.html) (open in a browser — includes a live Comunica query box).
 
