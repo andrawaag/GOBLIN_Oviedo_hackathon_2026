@@ -10,7 +10,22 @@ Rust. It is the store of choice for this project because:
 3. **It serves a standard, CORS-enabled SPARQL endpoint** that the browser-based
    [Comunica](COMUNICA.md) demo (and any SPARQL client) can query.
 
-## Install
+## In the browser (no install) — [`docs/demo.html`](docs/demo.html)
+
+Oxigraph ships a **WebAssembly** build that runs as an in-page triplestore — the demo loads it from
+a CDN, loads the bundled sample, and queries it (including SPARQL-star) entirely client-side:
+
+```js
+import init, * as oxigraph from "https://cdn.jsdelivr.net/npm/oxigraph/web.js";
+await init();
+const store = new oxigraph.Store();
+store.load(trigText, { format: "application/trig" });   // or "text/turtle" for the RDF 1.2 sample
+const rows = store.query("SELECT * WHERE { GRAPH ?g { ?s ?p ?o } } LIMIT 10");
+```
+
+For the **full 5 GB renderings**, use the native server below.
+
+## Install (server, for the full dataset)
 
 Pick one:
 

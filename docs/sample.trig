@@ -1,0 +1,342 @@
+@prefix sssom: <https://w3id.org/sssom/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+<https://w3id.org/commons/ols/mappings/agro.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/agro> .
+<https://w3id.org/commons/ols/mappings/agro.ols.sssom.tsv> {
+  <http://purl.obolibrary.org/obo/AGRO_00000426> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://aims.fao.org/aos/agrovoc/c_3367> .
+  <http://purl.obolibrary.org/obo/AGRO_00000430> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://aims.fao.org/aos/agrovoc/c_6663> .
+  <http://purl.obolibrary.org/obo/AGRO_00000431> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://aims.fao.org/aos/agrovoc/c_36542> .
+  <http://purl.obolibrary.org/obo/AGRO_00000432> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://aims.fao.org/aos/agrovoc/c_7456> .
+  <http://purl.obolibrary.org/obo/AGRO_00000434> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://aims.fao.org/aos/agrovoc/c_5497> .
+}
+
+<https://w3id.org/commons/ols/mappings/aism.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/aism> .
+<https://w3id.org/commons/ols/mappings/aism.ols.sssom.tsv> {
+}
+
+<https://w3id.org/commons/ols/mappings/amphx.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/amphx> .
+<https://w3id.org/commons/ols/mappings/amphx.ols.sssom.tsv> {
+  <http://purl.obolibrary.org/obo/AMPHX_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C16599> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000002> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C16938> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000007> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000068> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000008> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000106> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000009> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000107> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000010> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000108> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000011> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000109> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000012> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000110> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000014> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000069> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000015> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000069> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000018> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0034919> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000020> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000113> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007232> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000024> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007233> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000025> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007236> .
+  <http://purl.obolibrary.org/obo/AMPHX_0000031> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000108> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000002> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C12518> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000003> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C12598> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C12801> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000005> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C34144> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000006> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C12438> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000013> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/CL_0000365> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000013> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/SPD_0000786> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000014> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007232> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000015> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007233> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000016> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/CL_0000007> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000017> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/CL_0000007> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000022> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0006601> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000026> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0006603> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000027> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0006595> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000028> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_3010455> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000029> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_3010457> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000030> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_3010456> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000031> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000924> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000034> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_6000119> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000041> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007284> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000043> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_2007014> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000048> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0003075> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000051> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007376> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000054> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000926> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000055> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0004880> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000065> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0003077> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000070> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0002328> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000075> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000925> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000078> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0002533> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000104> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001049> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000106> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0003306> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000108> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0009862> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000109> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0002240> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000145> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0009868> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000146> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0009869> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000152> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0007097> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000166> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_2000083> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000210> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0018340> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000231> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000930> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000234> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001555> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000235> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001041> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000236> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001045> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000238> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001046> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000249> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0011944> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000251> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0005805> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000252> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0009866> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000253> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0009865> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000255> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000165> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000259> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0006870> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000262> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C12401> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000263> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0008815> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000265> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0001245> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000266> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0008815> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000268> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0008815> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000276> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0002329> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000317> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0008815> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000320> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0006562> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000325> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0012473> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000326> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0003097> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000334> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0003082> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000337> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0002067> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000340> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0012474> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000341> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000473> .
+  <http://purl.obolibrary.org/obo/AMPHX_1000342> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/UBERON_0000992> .
+}
+
+<https://w3id.org/commons/ols/mappings/apo.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/apo> .
+<https://w3id.org/commons/ols/mappings/apo.ols.sssom.tsv> {
+}
+
+<https://w3id.org/commons/ols/mappings/caro.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/caro> .
+<https://w3id.org/commons/ols/mappings/caro.ols.sssom.tsv> {
+  <http://purl.obolibrary.org/obo/CARO_0000013> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/CL_0000000> .
+  <http://purl.obolibrary.org/obo/CARO_0000013> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/GO_0005623> .
+}
+
+<https://w3id.org/commons/ols/mappings/mondo.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/mondo> .
+<https://w3id.org/commons/ols/mappings/mondo.ols.sssom.tsv> {
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_4> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/4347> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D004194> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C2991> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/OGMS_0000031> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=377788> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/64572001> .
+  <http://purl.obolibrary.org/obo/MONDO_0000001> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0012634> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_10493> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.ebi.ac.uk/efo/EFO_0009491> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/589758> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D000309> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C26691> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/386584007> .
+  <http://purl.obolibrary.org/obo/MONDO_0000004> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0405580> .
+  <http://purl.obolibrary.org/obo/MONDO_0000005> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS203655> .
+  <http://purl.obolibrary.org/obo/MONDO_0000009> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_2218> .
+  <http://purl.obolibrary.org/obo/MONDO_0000009> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS231200> .
+  <http://purl.obolibrary.org/obo/MONDO_0000009> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0005818> .
+  <http://purl.obolibrary.org/obo/MONDO_0000015> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/226929> .
+  <http://purl.obolibrary.org/obo/MONDO_0000015> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/363009005> .
+  <http://purl.obolibrary.org/obo/MONDO_0000015> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C1285186> .
+  <http://purl.obolibrary.org/obo/MONDO_0000022> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/124355> .
+  <http://purl.obolibrary.org/obo/MONDO_0000022> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D053206> .
+  <http://purl.obolibrary.org/obo/MONDO_0000022> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C118172> .
+  <http://purl.obolibrary.org/obo/MONDO_0000022> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0270327> .
+  <http://purl.obolibrary.org/obo/MONDO_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080716> .
+  <http://purl.obolibrary.org/obo/MONDO_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1813021> .
+  <http://purl.obolibrary.org/obo/MONDO_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS615438> .
+  <http://purl.obolibrary.org/obo/MONDO_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=464724> .
+  <http://purl.obolibrary.org/obo/MONDO_0000023> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C5681094> .
+  <http://purl.obolibrary.org/obo/MONDO_0000030> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/937685> .
+  <http://purl.obolibrary.org/obo/MONDO_0000030> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS600513> .
+  <http://purl.obolibrary.org/obo/MONDO_0000030> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C4313718> .
+  <http://purl.obolibrary.org/obo/MONDO_0000032> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0111297> .
+  <http://purl.obolibrary.org/obo/MONDO_0000032> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS121210> .
+  <http://purl.obolibrary.org/obo/MONDO_0000044> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=10060873> .
+  <http://purl.obolibrary.org/obo/MONDO_0000044> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS193100> .
+  <http://purl.obolibrary.org/obo/MONDO_0000044> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=437> .
+  <http://purl.obolibrary.org/obo/MONDO_0000045> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS275200> .
+  <http://purl.obolibrary.org/obo/MONDO_0000049> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS610799> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0060870> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1843308> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=10035083> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:2200317> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS262400> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=631> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/2109003> .
+  <http://purl.obolibrary.org/obo/MONDO_0000050> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C5679572> .
+  <http://purl.obolibrary.org/obo/MONDO_0000062> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080637> .
+  <http://purl.obolibrary.org/obo/MONDO_0000062> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS251600> .
+  <http://purl.obolibrary.org/obo/MONDO_0000063> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0003570> .
+  <http://purl.obolibrary.org/obo/MONDO_0000065> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS603933> .
+  <http://purl.obolibrary.org/obo/MONDO_0000070> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C536092> .
+  <http://purl.obolibrary.org/obo/MONDO_0000070> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/entry/607948> .
+  <http://purl.obolibrary.org/obo/MONDO_0000078> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/673840> .
+  <http://purl.obolibrary.org/obo/MONDO_0000078> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/205260006> .
+  <http://purl.obolibrary.org/obo/MONDO_0000078> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0687154> .
+  <http://purl.obolibrary.org/obo/MONDO_0000079> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080655> .
+  <http://purl.obolibrary.org/obo/MONDO_0000079> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS612286> .
+  <http://purl.obolibrary.org/obo/MONDO_0000082> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.ebi.ac.uk/efo/EFO_0004710> .
+  <http://purl.obolibrary.org/obo/MONDO_0000082> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/209090> .
+  <http://purl.obolibrary.org/obo/MONDO_0000082> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D056887> .
+  <http://purl.obolibrary.org/obo/MONDO_0000082> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/237113009> .
+  <http://purl.obolibrary.org/obo/MONDO_0000082> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0877015> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080918> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/78605> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D065706> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:1201071> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C116936> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=35981> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/4945003> .
+  <http://purl.obolibrary.org/obo/MONDO_0000087> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0266464> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0000826> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/18752> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D011629> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=10044701> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=10058084> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:2100135> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C79704> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=95708> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/400179000> .
+  <http://purl.obolibrary.org/obo/MONDO_0000088> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0034013> .
+  <http://purl.obolibrary.org/obo/MONDO_0000090> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS157640> .
+  <http://purl.obolibrary.org/obo/MONDO_0000094> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0004444> .
+  <http://purl.obolibrary.org/obo/MONDO_0000104> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/388759> .
+  <http://purl.obolibrary.org/obo/MONDO_0000104> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C567144> .
+  <http://purl.obolibrary.org/obo/MONDO_0000104> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS206100> .
+  <http://purl.obolibrary.org/obo/MONDO_0000104> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C2673913> .
+  <http://purl.obolibrary.org/obo/MONDO_0000105> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/871250> .
+  <http://purl.obolibrary.org/obo/MONDO_0000105> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C4025735> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/355953> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C538270> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS602483> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=137888> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/702443003> .
+  <http://purl.obolibrary.org/obo/MONDO_0000107> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C1865295> .
+  <http://purl.obolibrary.org/obo/MONDO_0000108> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/482276> .
+  <http://purl.obolibrary.org/obo/MONDO_0000108> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C3280646> .
+  <http://purl.obolibrary.org/obo/MONDO_0000110> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/66379> .
+  <http://purl.obolibrary.org/obo/MONDO_0000110> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C535441> .
+  <http://purl.obolibrary.org/obo/MONDO_0000110> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=2695> .
+  <http://purl.obolibrary.org/obo/MONDO_0000110> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0221363> .
+  <http://purl.obolibrary.org/obo/MONDO_0000115> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/2065> .
+  <http://purl.obolibrary.org/obo/MONDO_0000115> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D001139> .
+  <http://purl.obolibrary.org/obo/MONDO_0000115> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C84570> .
+  <http://purl.obolibrary.org/obo/MONDO_0000115> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/253184003> .
+  <http://purl.obolibrary.org/obo/MONDO_0000115> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0003803> .
+  <http://purl.obolibrary.org/obo/MONDO_0000118> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS179850> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0111724> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/483679> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://bioportal.bioontology.org/ontologies/MEDDRA?p=classes&conceptid=10063361> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS231050> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=2623> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/28557005> .
+  <http://purl.obolibrary.org/obo/MONDO_0000127> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C3489726> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1684765> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D056768> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C84728> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://rarediseases.org/?p=1182> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS256850> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/128207002> .
+  <http://purl.obolibrary.org/obo/MONDO_0000128> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C5200933> .
+  <http://purl.obolibrary.org/obo/MONDO_0000129> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0003150> .
+  <http://purl.obolibrary.org/obo/MONDO_0000129> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0003530> .
+  <http://purl.obolibrary.org/obo/MONDO_0000129> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/75695> .
+  <http://purl.obolibrary.org/obo/MONDO_0000129> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/28987007> .
+  <http://purl.obolibrary.org/obo/MONDO_0000129> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0268594> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0090007> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/140770> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C537362> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:1200334> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:2200708> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS242860> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=2268> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/234633000> .
+  <http://purl.obolibrary.org/obo/MONDO_0000133> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0398788> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080753> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/83355> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://rarediseases.org/?p=1288> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=2340> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/238626006> .
+  <http://purl.obolibrary.org/obo/MONDO_0000136> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0343057> .
+  <http://purl.obolibrary.org/obo/MONDO_0000137> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS604004> .
+  <http://purl.obolibrary.org/obo/MONDO_0000138> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/HP_0005871> .
+  <http://purl.obolibrary.org/obo/MONDO_0000138> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/120528> .
+  <http://purl.obolibrary.org/obo/MONDO_0000138> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/28681006> .
+  <http://purl.obolibrary.org/obo/MONDO_0000138> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0265290> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0080688> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1641418> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C536987> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS257300> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=1052> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/700056005> .
+  <http://purl.obolibrary.org/obo/MONDO_0000141> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C4551972> .
+  <http://purl.obolibrary.org/obo/MONDO_0000147> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/137722> .
+  <http://purl.obolibrary.org/obo/MONDO_0000147> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:2100257> .
+  <http://purl.obolibrary.org/obo/MONDO_0000147> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C4089> .
+  <http://purl.obolibrary.org/obo/MONDO_0000147> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0334108> .
+  <http://purl.obolibrary.org/obo/MONDO_0000148> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS614742> .
+  <http://purl.obolibrary.org/obo/MONDO_0000151> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1846284> .
+  <http://purl.obolibrary.org/obo/MONDO_0000151> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/253975004> .
+  <http://purl.obolibrary.org/obo/MONDO_0000151> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C5848178> .
+  <http://purl.obolibrary.org/obo/MONDO_0000152> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS249270> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/21245> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D014188> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://nanbyodata.jp/disease/NANDO:2200258> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C84742> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=216675> .
+  <http://purl.obolibrary.org/obo/MONDO_0000153> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0040761> .
+  <http://purl.obolibrary.org/obo/MONDO_0000156> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/82713> .
+  <http://purl.obolibrary.org/obo/MONDO_0000156> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/28740008> .
+  <http://purl.obolibrary.org/obo/MONDO_0000156> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0265535> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0060930> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.ebi.ac.uk/efo/EFO_1000648> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/1640560> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D000082602> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS142700> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/52781008> .
+  <http://purl.obolibrary.org/obo/MONDO_0000158> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C4551649> .
+  <http://purl.obolibrary.org/obo/MONDO_0000159> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/419754> .
+  <http://purl.obolibrary.org/obo/MONDO_0000159> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C536572> .
+  <http://purl.obolibrary.org/obo/MONDO_0000159> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C165614> .
+  <http://purl.obolibrary.org/obo/MONDO_0000159> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS614675> .
+  <http://purl.obolibrary.org/obo/MONDO_0000159> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C2931245> .
+  <http://purl.obolibrary.org/obo/MONDO_0000160> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0111689> .
+  <http://purl.obolibrary.org/obo/MONDO_0000160> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS601068> .
+  <http://purl.obolibrary.org/obo/MONDO_0000166> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS610551> .
+  <http://purl.obolibrary.org/obo/MONDO_0000169> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS156850> .
+  <http://purl.obolibrary.org/obo/MONDO_0000170> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/444071> .
+  <http://purl.obolibrary.org/obo/MONDO_0000170> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/C537463> .
+  <http://purl.obolibrary.org/obo/MONDO_0000170> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS300345> .
+  <http://purl.obolibrary.org/obo/MONDO_0000170> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=98938> .
+  <http://purl.obolibrary.org/obo/MONDO_0000170> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C2931500> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/DOID_0050560> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://www.ncbi.nlm.nih.gov/medgen/75553> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://id.nlm.nih.gov/mesh/D058494> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://purl.obolibrary.org/obo/NCIT_C99109> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://omim.org/MIM:PS236670> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://www.orpha.net/consor/cgi-bin/OC_Exp.php?Lng=EN&Expert=899> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <http://snomed.info/id/111504002> .
+  <http://purl.obolibrary.org/obo/MONDO_0000171> <http://www.geneontology.org/formats/oboInOwl#hasDbXref> <https://uts.nlm.nih.gov/uts/umls/concept/C0265221> .
+}
+
+<https://w3id.org/commons/ols/mappings/omo.ols.sssom.tsv> a <https://w3id.org/sssom/MappingSet> ;
+  <https://w3id.org/sssom/mapping_set_group> "ols_sssom_extracts" ;
+  <https://w3id.org/sssom/mapping_set_confidence> 0.7 ;
+  <https://w3id.org/sssom/mapping_set_source> <https://www.ebi.ac.uk/ols4/ontologies/omo> .
+<https://w3id.org/commons/ols/mappings/omo.ols.sssom.tsv> {
+}

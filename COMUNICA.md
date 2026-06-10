@@ -7,7 +7,26 @@ layer: it does not hold the 5 GB of RDF itself — it sends SPARQL to an
 several endpoints at once (e.g. the local OLS store *and* the Wikidata SPARQL endpoint — the
 basis for the planned Wikidata work).
 
-## In the browser (the slide)
+## In the browser, fully self-contained ([`docs/demo.html`](docs/demo.html))
+
+The demo page runs Comunica **entirely client-side** over a bundled sample — no SPARQL endpoint
+needed. Because a static host labels `.trig`/`.ttls` as `application/octet-stream` (which Comunica
+can't sniff), it fetches the file text and passes a **`serialized`** source with an explicit media
+type:
+
+```js
+const text = await (await fetch('sample.trig')).text();
+const engine = new Comunica.QueryEngine();
+const stream = await engine.queryBindings(query, {
+  sources: [{ type: 'serialized', value: text, mediaType: 'application/trig', baseIRI }]
+});
+```
+
+The same page also runs **Oxigraph as WebAssembly** as an in-page store; you can switch engines.
+For the RDF 1.2 / Turtle-star sample, Comunica's RDF-star support varies by query — prefer Oxigraph
+if a query errors.
+
+## Against a running endpoint
 
 [`docs/index.html`](docs/index.html) embeds the Comunica browser build from a CDN:
 

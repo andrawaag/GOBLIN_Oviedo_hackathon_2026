@@ -22,7 +22,10 @@ RDF serializations, then serves them for SPARQL querying via
 
 _(ORCID iDs / affiliations to be confirmed — see `CITATION.cff`.)_
 
-👉 **Slide / demo:** [`docs/index.html`](docs/index.html) (open in a browser — includes a live Comunica query box).
+👉 **Slides:** [`docs/index.html`](docs/index.html) · **Live in-browser SPARQL demo:**
+[`docs/demo.html`](docs/demo.html) — runs **both Oxigraph (WebAssembly) and Comunica entirely in
+your browser** over a bundled sample. No server, no endpoint, no download.
+(Published via GitHub Pages: <https://andrawaag.github.io/GOBLIN_Oviedo_hackathon_2026/demo.html>)
 
 ---
 

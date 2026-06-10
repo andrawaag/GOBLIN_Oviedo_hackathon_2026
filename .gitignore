@@ -6,6 +6,10 @@ sssom_all.ttls
 *.ttls
 *.sssom.tsv
 
+# …but DO keep the small, self-contained browser-demo samples
+!docs/sample.trig
+!docs/sample.ttls
+
 # logs / scratch
 *.log
 __pycache__/

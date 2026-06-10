@@ -240,21 +240,20 @@ flowchart TB
 
   <!-- 7 — Stack + demo -->
   <section class="slide"><div class="wrap">
-    <h2><span class="tag">6</span>Stack — Oxigraph + Comunica</h2>
-    <p><b>Oxigraph</b> (Rust) is the only store in the loop that <i>parses &amp; queries RDF 1.2/RDF-star</i>
-       and scales to the GB files; it serves a SPARQL endpoint. <b>Comunica</b> (browser) queries that
-       endpoint and renders results — and can federate across many. Live box (needs a running Oxigraph):</p>
-    <div class="demo card">
-      <label for="ep">SPARQL endpoint</label><input id="ep" value="http://localhost:7878/query">
-      <label for="preset">Preset</label>
-      <select id="preset">
-        <option value="graph">Named graphs — mappings by source graph</option>
-        <option value="star">RDF 1.2 — mappings with justification</option>
-        <option value="sets">Mapping sets &amp; confidence</option>
-      </select>
-      <label for="q">SPARQL</label><textarea id="q"></textarea>
-      <div class="row"><button id="run">▶ Run</button><button id="reset" class="ghost">Reset</button><span id="status">idle</span></div>
-      <div class="results"><table id="out"><thead></thead><tbody></tbody></table></div>
+    <h2><span class="tag">6</span>Stack — Oxigraph + Comunica, in the browser</h2>
+    <p><b>Oxigraph</b> (Rust → <b>WebAssembly</b>) parses &amp; queries RDF 1.2/RDF-star and runs as an
+       in-page triplestore. <b>Comunica</b> (browser) fetches &amp; parses the same data and can federate
+       across endpoints. Our demo runs <b>both engines entirely client-side</b> over a bundled sample —
+       no server, no endpoint, no download.</p>
+    <div class="card" style="text-align:center;padding:26px">
+      <p style="font-size:16px;margin-bottom:16px">▶ Self-contained, in-browser SPARQL playground —
+         pick Oxigraph (WASM) or Comunica, named graphs or RDF 1.2:</p>
+      <a href="demo.html" style="display:inline-block;background:var(--accent);color:#06210d;
+         font-weight:700;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:15px">
+         Open the live demo →</a>
+      <p class="muted" style="font-size:12.5px;margin-top:16px">For the full 5 GB renderings (271 sets /
+         6.24 M mappings), load them into a real Oxigraph endpoint and query with Comunica — see
+         <a href="../OXIGRAPH.md">OXIGRAPH.md</a>.</p>
     </div>
   </div></section>
 
@@ -305,7 +304,6 @@ flowchart TB
 <div class="nav"><button id="prev">‹ Prev</button><button id="next">Next ›</button></div>
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script src="https://rdf.js.org/comunica-browser/versions/latest/engines/query-sparql/comunica-browser.js"></script>
 <script>
   if (window.mermaid) mermaid.initialize({startOnLoad:true, theme:'dark',
     themeVariables:{fontFamily:'SF Mono, monospace', fontSize:'13px',
@@ -327,32 +325,6 @@ flowchart TB
   addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')go(cur+1);
     if(e.key==='ArrowLeft'||e.key==='PageUp')go(cur-1);});
   go(0);
-
-  // ---- Comunica demo ----
-  const PRESETS={
-    graph:`SELECT ?graph ?subject ?predicate ?object WHERE {\n  GRAPH ?graph { ?subject ?predicate ?object }\n} LIMIT 25`,
-    star:`PREFIX sssom: <https://w3id.org/sssom/>\nSELECT ?subject ?predicate ?object ?justification WHERE {\n  ?subject ?predicate ?object .\n  ?r rdf:reifies <<( ?subject ?predicate ?object )>> .\n  ?r sssom:mapping_justification ?justification .\n} LIMIT 25`,
-    sets:`PREFIX sssom: <https://w3id.org/sssom/>\nSELECT ?set ?confidence ?source WHERE {\n  ?set a sssom:MappingSet .\n  OPTIONAL { ?set sssom:mapping_set_confidence ?confidence }\n  OPTIONAL { ?set sssom:mapping_set_source ?source }\n} LIMIT 50`};
-  const $=id=>document.getElementById(id);
-  const loadPreset=()=>$('q').value=PRESETS[$('preset').value];
-  $('preset').onchange=loadPreset; $('reset').onclick=loadPreset; loadPreset();
-  $('run').onclick=async()=>{
-    $('out').querySelector('thead').innerHTML=''; $('out').querySelector('tbody').innerHTML='';
-    if(typeof Comunica==='undefined'){$('status').textContent='⚠ Comunica not loaded (offline?)';return;}
-    const ep=$('ep').value.trim(); $('status').textContent='querying '+ep+' …';
-    try{
-      const engine=new Comunica.QueryEngine();
-      const stream=await engine.queryBindings($('q').value,{sources:[{type:'sparql',value:ep}]});
-      let vars=null,n=0; const tb=$('out').querySelector('tbody');
-      stream.on('data',b=>{ if(!vars){vars=[...b.keys()].map(k=>k.value);
-          $('out').querySelector('thead').innerHTML='<tr>'+vars.map(v=>'<th>'+v+'</th>').join('')+'</tr>';}
-        const tr=document.createElement('tr');
-        tr.innerHTML=vars.map(v=>{const t=b.get(v);return '<td title="'+(t?t.value:'')+'">'+(t?t.value:'')+'</td>';}).join('');
-        tb.appendChild(tr);n++;});
-      stream.on('end',()=>$('status').textContent='✔ '+n+' rows');
-      stream.on('error',e=>$('status').textContent='✖ '+e.message);
-    }catch(e){$('status').textContent='✖ '+e.message+'  (Oxigraph running & CORS on?)';}
-  };
 </script>
 </body>
 </html>

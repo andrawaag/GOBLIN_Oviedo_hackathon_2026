@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSSOM → RDF · in-browser SPARQL (Oxigraph + Comunica)</title>
+<style>
+  :root{
+    --bg:#0d1117;--panel:#161b22;--panel2:#1c2330;--line:#2b3441;--ink:#e6edf3;
+    --muted:#9aa7b4;--accent:#7ee787;--accent2:#79c0ff;--star:#ffa657;--graph:#d2a8ff;--warn:#f8e3a1;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;padding:34px 26px 80px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:30px;margin:8px 0 6px}
+  h1 .star{color:var(--star)} h1 .graph{color:var(--graph)}
+  p{color:#cdd6e0;font-size:14.5px} a{color:var(--accent2)} .muted{color:var(--muted)}
+  code{font-family:var(--mono);background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:.88em;color:var(--accent2)}
+  .badge{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 9px;border-radius:20px;border:1px solid var(--line);margin-right:6px}
+  .ok{color:var(--accent);border-color:#2c5} .pending{color:var(--warn);border-color:#7a6}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:18px}
+  label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px;font-family:var(--mono)}
+  select,textarea{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:9px 11px;font-family:var(--mono);font-size:12.5px}
+  textarea{min-height:150px;resize:vertical}
+  .controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  button{background:var(--accent);color:#06210d;border:0;border-radius:8px;padding:10px 18px;font-weight:700;cursor:pointer;font-size:14px}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  button.ghost{background:transparent;color:var(--accent2);border:1px solid var(--line);font-weight:600}
+  #status{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .hint{font-size:12px;color:var(--warn);font-family:var(--mono);min-height:1em}
+  .results{margin-top:14px;overflow:auto;max-height:420px;border:1px solid var(--line);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{position:sticky;top:0;background:var(--panel2);color:var(--accent2);font-family:var(--mono)}
+  td{font-family:var(--mono);color:#c9d3de;max-width:520px;overflow:hidden;text-overflow:ellipsis}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">GOBLIN · Oviedo BioHackathon 2026</div>
+  <h1>In-browser SPARQL over SSSOM — <span class="graph">named graphs</span> &amp; <span class="star">RDF 1.2</span></h1>
+  <p>Fully self-contained: a bundled sample (289 mappings, 7 sets) is queried <b>entirely in your
+     browser</b>. No server, no endpoint, no download — choose the engine and run.
+     <a href="index.html">← back to the slides</a></p>
+  <p style="margin-top:8px">
+    <span class="badge" id="bx">⚙ Oxigraph (WASM): loading…</span>
+    <span class="badge" id="bc">🔎 Comunica: loading…</span>
+  </p>
+
+  <div class="panel">
+    <div class="controls">
+      <div>
+        <label for="dataset">Dataset</label>
+        <select id="dataset">
+          <option value="graphs">Named graphs — sample.trig</option>
+          <option value="star">RDF 1.2 / Turtle-star — sample.ttls</option>
+        </select>
+      </div>
+      <div>
+        <label for="engine">Engine (both run in the browser)</label>
+        <select id="engine">
+          <option value="oxigraph">Oxigraph (WebAssembly, in-page store)</option>
+          <option value="comunica">Comunica (fetches &amp; parses the file)</option>
+        </select>
+      </div>
+    </div>
+    <label for="preset">Preset query</label>
+    <select id="preset"></select>
+    <label for="q">SPARQL</label>
+    <textarea id="q" spellcheck="false"></textarea>
+    <div class="row">
+      <button id="run" disabled>▶ Run</button>
+      <button id="reset" class="ghost">Reset preset</button>
+      <span id="status">initialising…</span>
+    </div>
+    <div class="hint" id="hint"></div>
+    <div class="results"><table id="out"><thead></thead><tbody></tbody></table></div>
+  </div>
+
+  <p class="muted" style="font-size:12.5px;margin-top:16px">
+    Oxigraph (WebAssembly) parses &amp; queries both samples, including RDF 1.2 / SPARQL-star.
+    Comunica fetches the same-origin file and queries it; its RDF-star support is still maturing, so
+    for the RDF 1.2 dataset prefer Oxigraph. The full 5 GB renderings (271 sets / 6.24 M mappings)
+    are served from a real Oxigraph endpoint — see
+    <a href="https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026/blob/main/OXIGRAPH.md">OXIGRAPH.md</a>.
+  </p>
+</div>
+
+<!-- Comunica (browser build) sets window.Comunica -->
+<script src="https://rdf.js.org/comunica-browser/versions/latest/engines/query-sparql/comunica-browser.js"></script>
+
+<script type="module">
+import init, * as oxigraph from "https://cdn.jsdelivr.net/npm/oxigraph/web.js";
+
+const PREFIXES =
+`PREFIX sssom: <https://w3id.org/sssom/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+`;
+const PRESETS = {
+  graphs: {
+    "Mappings grouped by source graph":
+`SELECT ?graph ?subject ?predicate ?object WHERE {
+  GRAPH ?graph { ?subject ?predicate ?object }
+}
+LIMIT 30`,
+    "Mapping sets & their confidence":
+`${PREFIXES}SELECT ?set ?confidence ?source WHERE {
+  ?set a sssom:MappingSet .
+  OPTIONAL { ?set sssom:mapping_set_confidence ?confidence }
+  OPTIONAL { ?set sssom:mapping_set_source ?source }
+}`
+  },
+  star: {
+    "Mappings with their justification (SPARQL-star)":
+`${PREFIXES}SELECT ?subject ?predicate ?object ?justification WHERE {
+  ?subject ?predicate ?object .
+  ?r rdf:reifies <<( ?subject ?predicate ?object )>> .
+  ?r sssom:mapping_justification ?justification .
+}
+LIMIT 30`,
+    "Mappings with subject & object labels":
+`${PREFIXES}SELECT ?subject ?subjectLabel ?object ?objectLabel WHERE {
+  ?subject ?predicate ?object .
+  ?r rdf:reifies <<( ?subject ?predicate ?object )>> .
+  OPTIONAL { ?r sssom:subject_label ?subjectLabel }
+  OPTIONAL { ?r sssom:object_label  ?objectLabel }
+}
+LIMIT 30`
+  }
+};
+
+const $ = id => document.getElementById(id);
+const FILES = { graphs: "sample.trig", star: "sample.ttls" };
+const MIME  = { graphs: "application/trig", star: "text/turtle" };
+let stores = {};               // oxigraph stores per dataset
+let texts  = {};               // raw text per dataset (for reference)
+
+function setStatus(t){ $("status").textContent = t; }
+function fillPresets(){
+  const ds = $("dataset").value;
+  $("preset").innerHTML = Object.keys(PRESETS[ds]).map(k => `<option>${k}</option>`).join("");
+  loadPreset();
+}
+function loadPreset(){
+  const ds = $("dataset").value;
+  $("q").value = PRESETS[ds][$("preset").value];
+}
+function updateHint(){
+  const star = $("dataset").value === "star";
+  const comunica = $("engine").value === "comunica";
+  $("hint").textContent = (star && comunica)
+    ? "ℹ RDF 1.2 + Comunica: RDF-star support varies by query — if Comunica errors, switch to Oxigraph."
+    : "";
+}
+function clearTable(){ $("out").querySelector("thead").innerHTML=""; $("out").querySelector("tbody").innerHTML=""; }
+function renderRows(vars, rows){
+  $("out").querySelector("thead").innerHTML = "<tr>" + vars.map(v=>`<th>${v}</th>`).join("") + "</tr>";
+  const tb = $("out").querySelector("tbody");
+  tb.innerHTML = rows.map(r =>
+    "<tr>" + vars.map(v => { const val = r[v] ?? ""; return `<td title="${val}">${val}</td>`; }).join("") + "</tr>"
+  ).join("");
+}
+
+async function runOxigraph(){
+  const store = stores[$("dataset").value];
+  const res = store.query($("q").value);                 // Array of Map<string,Term> for SELECT
+  if (!Array.isArray(res)) { setStatus("✔ (non-SELECT result)"); return; }
+  const vars = res.length ? [...res[0].keys()] : [];
+  const rows = res.map(m => Object.fromEntries([...m.entries()].map(([k,t]) => [k, t ? t.value : ""])));
+  renderRows(vars, rows); setStatus(`✔ ${rows.length} rows (Oxigraph WASM)`);
+}
+
+async function runComunica(){
+  if (!window.Comunica) { setStatus("✖ Comunica not loaded"); return; }
+  const ds = $("dataset").value;
+  const url = new URL(FILES[ds], location.href).href;
+  // Fetch the text and hand Comunica a serialized source with an explicit media type —
+  // the server labels .trig/.ttls as application/octet-stream, which Comunica can't sniff.
+  const text = texts[ds] ?? await (await fetch(FILES[ds])).text();
+  const engine = new Comunica.QueryEngine();
+  const stream = await engine.queryBindings($("q").value, {
+    sources: [{ type: "serialized", value: text, mediaType: MIME[ds], baseIRI: url }]
+  });
+  let vars=null; const rows=[];
+  await new Promise((resolve,reject)=>{
+    stream.on("data", b => {
+      if (!vars) vars = [...b.keys()].map(k=>k.value);
+      rows.push(Object.fromEntries(vars.map(v => { const t=b.get(v); return [v, t?t.value:""]; })));
+    });
+    stream.on("end", resolve); stream.on("error", reject);
+  });
+  renderRows(vars||[], rows); setStatus(`✔ ${rows.length} rows (Comunica)`);
+}
+
+$("run").addEventListener("click", async () => {
+  clearTable(); setStatus("querying…");
+  try { await ($("engine").value === "oxigraph" ? runOxigraph() : runComunica()); }
+  catch (e) { setStatus("✖ " + (e && e.message ? e.message : e)); }
+});
+$("dataset").addEventListener("change", () => { fillPresets(); updateHint(); });
+$("engine").addEventListener("change", updateHint);
+$("preset").addEventListener("change", loadPreset);
+$("reset").addEventListener("click", loadPreset);
+
+(async function boot(){
+  fillPresets(); updateHint();
+  // Comunica readiness
+  $("bc").textContent = window.Comunica ? "🔎 Comunica: ready" : "🔎 Comunica: unavailable";
+  $("bc").className = "badge " + (window.Comunica ? "ok" : "pending");
+  // Oxigraph WASM + load samples
+  try {
+    await init();
+    for (const ds of ["graphs","star"]) {
+      const txt = await (await fetch(FILES[ds])).text();
+      texts[ds] = txt;
+      const s = new oxigraph.Store();
+      s.load(txt, { format: MIME[ds] });
+      stores[ds] = s;
+    }
+    $("bx").textContent = "⚙ Oxigraph (WASM): ready"; $("bx").className = "badge ok";
+    $("run").disabled = false; setStatus("ready — choose engine & run");
+  } catch (e) {
+    $("bx").textContent = "⚙ Oxigraph (WASM): failed"; $("bx").className = "badge pending";
+    setStatus("✖ Oxigraph init failed: " + (e && e.message ? e.message : e) + " — Comunica still usable");
+    $("run").disabled = false;   // Comunica path can still work
+  }
+})();
+</script>
+</body>
+</html>
