@@ -2,7 +2,7 @@
 
 **Rendering SSSOM ontology mappings as RDF — named graphs *and* RDF 1.2.**
 
-This repository is the output of a GOBLIN track at the Oviedo BioHackathon 2026.
+This repository is the output of a track on SSSSOM in RDF1.2 at the Oviedo GOBLIN Hackathon 2026.
 It renders [SSSOM](https://mapping-commons.github.io/sssom/) mapping sets into two complementary
 RDF serializations, then serves them for SPARQL querying via
 [Oxigraph](https://github.com/oxigraph/oxigraph) and browses them with
@@ -49,7 +49,7 @@ MONDO:0000001   oboInOwl:hasDbXref  DOID:4      semapv:UnspecifiedMatching  dise
 A mapping is, ontologically, *a statement about a statement*. The two approaches attach that
 metadata at **different layers of the RDF stack**:
 
-| | **Named graphs (TriG)** | **RDF 1.2 (Turtle-star)** |
+| | **Named graphs (TriG)** | **RDF 1.2 (Turtle 1.2)** |
 |---|---|---|
 | Layer | RDF 1.1 dataset / context → quads | abstract syntax → triple terms |
 | Granularity | one graph per `mapping_set` | per mapping (`{\| … \|}` annotation) |
@@ -65,10 +65,10 @@ Turtle-star file is the lossless, per-mapping master.
 
 ## Sources
 
-- ✅ **EBI OLS** *(done)* — the [OLS4](https://www.ebi.ac.uk/ols4/) service publishes
+- **EBI OLS** *(done)* — the [OLS4](https://www.ebi.ac.uk/ols4/) service publishes
   per-ontology SSSOM extracts. We rendered **271 mapping sets / 6,238,000 mappings** into both
   formats in ~91 s (TriG 1.5 GB, Turtle-star 3.7 GB).
-- 🔭 **Wikidata** *(future work)* — we began extracting ontology cross-references from Wikidata
+- **Wikidata** *(future work)* — we began extracting ontology cross-references from Wikidata
   (a natural mapping hub via external-ID properties) and emitting SSSOM, but did not finish
   within the hackathon. Comunica federation makes the eventual join natural: query the local
   Oxigraph endpoint *and* the Wikidata SPARQL endpoint together.
