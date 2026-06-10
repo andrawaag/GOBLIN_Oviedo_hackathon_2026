@@ -3,7 +3,7 @@ message: "If you use this work, please cite it as below."
 title: "SSSOM rendered as RDF named graphs and RDF 1.2"
 abstract: >-
   Rendering SSSOM ontology-mapping sets into two complementary RDF
-  serializations — named graphs (TriG) and RDF 1.2 (Turtle-star triple
+  serializations — named graphs (TriG) and RDF 1.2 (Turtle 1.2 triple
   terms) — with tooling to serve them via Oxigraph and query them via
   Comunica. Produced at the GOBLIN track of the Oviedo BioHackathon 2026.
 type: software

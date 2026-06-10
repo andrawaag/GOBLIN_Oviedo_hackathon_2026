@@ -23,7 +23,7 @@ const stream = await engine.queryBindings(query, {
 ```
 
 The same page also runs **Oxigraph as WebAssembly** as an in-page store; you can switch engines.
-For the RDF 1.2 / Turtle-star sample, Comunica's RDF-star support varies by query — prefer Oxigraph
+For the RDF 1.2 / Turtle 1.2 sample, Comunica's RDF 1.2 support varies by query — prefer Oxigraph
 if a query errors.
 
 ## Against a running endpoint
@@ -67,8 +67,8 @@ This is why Comunica pairs well with the Wikidata extraction that remains as fut
 local OLS mappings and Wikidata cross-references can be joined in a single federated query
 without first materialising them into one store.
 
-## RDF 1.2 / SPARQL-star note
+## RDF 1.2 / SPARQL 1.2 note
 
-The Turtle-star rendering needs SPARQL-star pattern support (the `<<( … )>>` / `rdf:reifies`
+The Turtle 1.2 rendering needs SPARQL 1.2 pattern support (the `<<( … )>>` / `rdf:reifies`
 forms). When querying it, prefer letting Oxigraph do the heavy lifting (`type: 'sparql'`
 source pointing at the RDF 1.2 store) rather than asking Comunica to dereference the raw file.

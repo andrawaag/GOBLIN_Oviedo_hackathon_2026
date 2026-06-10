@@ -58,19 +58,19 @@ metadata at **different layers of the RDF stack**:
 | Granularity | one graph per `mapping_set` | per mapping (`{\| … \|}` annotation) |
 | Carries | set-level provenance on the graph | justification + labels per mapping (**lossless**) |
 | Semantics | dataset semantics **undefined** by spec (convention) | **defined**; triple term opaque, non-asserting (`rdf:reifies`) |
-| Tooling | universal — SPARQL 1.1 `GRAPH` | needs an RDF-star engine (rdflib can't parse it; Oxigraph can) |
+| Tooling | universal — SPARQL 1.1 `GRAPH` | needs a SPARQL 1.2 engine (rdflib can't parse it; Oxigraph can) |
 | Cost | ~1 quad / mapping | ~5× statement blow-up (6.2M → 34M) |
 | Models | `sssom:MappingSet` | `sssom:Mapping` |
 
 **Key insight:** named graph ↔ `MappingSet`, triple term ↔ `Mapping`. They model *different
 layers*, so they **compose** — the TriG file is the portable, partition-by-source view; the
-Turtle-star file is the lossless, per-mapping master.
+Turtle 1.2 file is the lossless, per-mapping master.
 
 ## Sources
 
 - **EBI OLS** *(done)* — the [OLS4](https://www.ebi.ac.uk/ols4/) service publishes
   per-ontology SSSOM extracts. We rendered **271 mapping sets / 6,238,000 mappings** into both
-  formats in ~91 s (TriG 1.5 GB, Turtle-star 3.7 GB).
+  formats in ~91 s (TriG 1.5 GB, Turtle 1.2 3.7 GB).
 - **Wikidata** *(future work)* — we began extracting ontology cross-references from Wikidata
   (a natural mapping hub via external-ID properties) and emitting SSSOM, but did not finish
   within the hackathon. Comunica federation makes the eventual join natural: query the local
@@ -83,7 +83,7 @@ docs/index.html              Slide deck + live Comunica demo
 docs/approach.md             RDF 1.2 approach, design decisions & caveats
 docs/schema-named-graphs.md  Schema (mermaid + ShEx) for the TriG rendering
 docs/schema-rdf12.md         Schema (mermaid + ShEx-style) for the RDF 1.2 rendering
-scripts/sssom_serialize.py   Streaming SSSOM-TSV → TriG + Turtle-star serializer (LLM-generated)
+scripts/sssom_serialize.py   Streaming SSSOM-TSV → TriG + Turtle 1.2 serializer (LLM-generated)
 COMUNICA.md                  How to query the renderings with Comunica
 OXIGRAPH.md                  How to load & serve the renderings with Oxigraph
 data/README.md               How to get the rendered RDF (Git LFS)

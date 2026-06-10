@@ -1,4 +1,4 @@
-# Schema — RDF 1.2 rendering (Turtle-star)
+# Schema — RDF 1.2 rendering (Turtle 1.2)
 
 > ⚠️ **ShEx 2.1 does not support RDF 1.2 yet** — there is no triple-term / `rdf:reifies`
 > construct in the ShEx grammar. The shape below is therefore **ShEx-*style* pseudo-syntax**, and
@@ -50,7 +50,7 @@ PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
 }
 ```
 
-## Example (Turtle-star, RDF 1.2)
+## Example (Turtle 1.2, RDF 1.2)
 
 ```turtle
 <http://purl.obolibrary.org/obo/MONDO_0000001>

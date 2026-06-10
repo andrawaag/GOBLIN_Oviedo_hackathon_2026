@@ -3,7 +3,7 @@
 [Oxigraph](https://github.com/oxigraph/oxigraph) is a fast, embeddable RDF database written in
 Rust. It is the store of choice for this project because:
 
-1. **It natively parses *and* queries RDF 1.2 / RDF-star.** The Turtle-star rendering
+1. **It natively parses *and* queries RDF 1.2.** The Turtle 1.2 rendering
    (`sssom_all.ttls`) uses triple-term reification (`{| … |}` → `rdf:reifies`). Many stores —
    and Python's rdflib — cannot even parse this; Oxigraph can, and exposes it through SPARQL 1.2.
 2. **It scales to the multi-GB renderings** without a JVM or external services.
@@ -13,7 +13,7 @@ Rust. It is the store of choice for this project because:
 ## In the browser (no install) — [`docs/demo.html`](docs/demo.html)
 
 Oxigraph ships a **WebAssembly** build that runs as an in-page triplestore — the demo loads it from
-a CDN, loads the bundled sample, and queries it (including SPARQL-star) entirely client-side:
+a CDN, loads the bundled sample, and queries it (including SPARQL 1.2) entirely client-side:
 
 ```js
 import init, * as oxigraph from "https://cdn.jsdelivr.net/npm/oxigraph/web.js";
@@ -43,7 +43,7 @@ Fetch and unzip:
 ```bash
 git lfs pull                       # if files are LFS pointers after clone
 gunzip -k data/sssom_all.trig.gz   # → sssom_all.trig  (named graphs, 1.5 GB)
-gunzip -k data/sssom_all.ttls.gz   # → sssom_all.ttls  (RDF 1.2 / Turtle-star, 3.7 GB)
+gunzip -k data/sssom_all.ttls.gz   # → sssom_all.ttls  (RDF 1.2 / Turtle 1.2, 3.7 GB)
 ```
 
 ## Load
@@ -94,7 +94,7 @@ SELECT ?set ?confidence ?source WHERE {
 } LIMIT 50
 ```
 
-**RDF 1.2 store** — each mapping with its per-mapping justification (SPARQL-star):
+**RDF 1.2 store** — each mapping with its per-mapping justification (SPARQL 1.2):
 
 ```sparql
 PREFIX sssom: <https://w3id.org/sssom/>

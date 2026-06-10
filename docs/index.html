@@ -124,12 +124,12 @@ MONDO:0000001  oboInOwl:hasDbXref  DOID:4     semapv:UnspecifiedMatching</pre>
     <p>A mapping is <i>a statement about a statement</i>. The two approaches attach that metadata at
        <b>different layers of the RDF stack</b>:</p>
     <table>
-      <tr><th></th><th class="gcol">Named graphs (TriG)</th><th class="scol">RDF 1.2 (Turtle-star)</th></tr>
+      <tr><th></th><th class="gcol">Named graphs (TriG)</th><th class="scol">RDF 1.2 (Turtle 1.2)</th></tr>
       <tr><td><b>Layer</b></td><td>dataset / context → quads</td><td>abstract syntax → triple terms</td></tr>
       <tr><td><b>Granularity</b></td><td>one graph per <code>mapping_set</code></td><td>per mapping (<code>{| … |}</code>)</td></tr>
       <tr><td><b>Carries</b></td><td>set-level provenance</td><td>justification + labels (<b>lossless</b>)</td></tr>
       <tr><td><b>Semantics</b></td><td><i>undefined</i> by spec (convention)</td><td><i>defined</i>; opaque, non-asserting</td></tr>
-      <tr><td><b>Tooling</b></td><td>universal — SPARQL 1.1 <code>GRAPH</code></td><td>needs RDF-star engine (Oxigraph)</td></tr>
+      <tr><td><b>Tooling</b></td><td>universal — SPARQL 1.1 <code>GRAPH</code></td><td>needs SPARQL 1.2 engine (Oxigraph)</td></tr>
       <tr><td><b>Cost</b></td><td>~1 quad / mapping</td><td>~5× blow-up (6.2M→34M)</td></tr>
       <tr><td><b>Models</b></td><td><code>sssom:MappingSet</code></td><td><code>sssom:Mapping</code></td></tr>
     </table>
@@ -226,7 +226,7 @@ flowchart TB
           <div class="stat"><div class="v">6.24M</div><div class="l">mappings</div></div>
           <div class="stat"><div class="v">~91s</div><div class="l">both formats</div></div>
         </div>
-        <p class="muted" style="font-size:13px">TriG 1.5 GB · Turtle-star 3.7 GB → in repo via Git LFS (87 / 204 MB gz).</p>
+        <p class="muted" style="font-size:13px">TriG 1.5 GB · Turtle 1.2 3.7 GB → in repo via Git LFS (87 / 204 MB gz).</p>
       </div>
       <div class="card">
         <h3><span class="pill future">FUTURE WORK</span> &nbsp;Wikidata</h3>
@@ -241,7 +241,7 @@ flowchart TB
   <!-- 7 — Stack + demo -->
   <section class="slide"><div class="wrap">
     <h2><span class="tag">6</span>Stack — Oxigraph + Comunica, in the browser</h2>
-    <p><b>Oxigraph</b> (Rust → <b>WebAssembly</b>) parses &amp; queries RDF 1.2/RDF-star and runs as an
+    <p><b>Oxigraph</b> (Rust → <b>WebAssembly</b>) parses &amp; queries RDF 1.2 and runs as an
        in-page triplestore. <b>Comunica</b> (browser) fetches &amp; parses the same data and can federate
        across endpoints. Our demo runs <b>both engines entirely client-side</b> over a bundled sample —
        no server, no endpoint, no download.</p>

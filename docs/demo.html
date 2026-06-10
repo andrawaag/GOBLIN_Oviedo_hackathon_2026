@@ -58,7 +58,7 @@
         <label for="dataset">Dataset</label>
         <select id="dataset">
           <option value="graphs">Named graphs — sample.trig</option>
-          <option value="star">RDF 1.2 / Turtle-star — sample.ttls</option>
+          <option value="star">RDF 1.2 / Turtle 1.2 — sample.ttls</option>
         </select>
       </div>
       <div>
@@ -83,8 +83,8 @@
   </div>
 
   <p class="muted" style="font-size:12.5px;margin-top:16px">
-    Oxigraph (WebAssembly) parses &amp; queries both samples, including RDF 1.2 / SPARQL-star.
-    Comunica fetches the same-origin file and queries it; its RDF-star support is still maturing, so
+    Oxigraph (WebAssembly) parses &amp; queries both samples, including RDF 1.2 / SPARQL 1.2.
+    Comunica fetches the same-origin file and queries it; its RDF 1.2 support is still maturing, so
     for the RDF 1.2 dataset prefer Oxigraph. The full 5 GB renderings (271 sets / 6.24 M mappings)
     are served from a real Oxigraph endpoint — see
     <a href="https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026/blob/main/OXIGRAPH.md">OXIGRAPH.md</a>.
@@ -117,7 +117,7 @@ LIMIT 30`,
 }`
   },
   star: {
-    "Mappings with their justification (SPARQL-star)":
+    "Mappings with their justification (SPARQL 1.2)":
 `${PREFIXES}SELECT ?subject ?predicate ?object ?justification WHERE {
   ?subject ?predicate ?object .
   ?r rdf:reifies <<( ?subject ?predicate ?object )>> .
@@ -155,7 +155,7 @@ function updateHint(){
   const star = $("dataset").value === "star";
   const comunica = $("engine").value === "comunica";
   $("hint").textContent = (star && comunica)
-    ? "ℹ RDF 1.2 + Comunica: RDF-star support varies by query — if Comunica errors, switch to Oxigraph."
+    ? "ℹ RDF 1.2 + Comunica: triple-term support varies by query — if Comunica errors, switch to Oxigraph."
     : "";
 }
 function clearTable(){ $("out").querySelector("thead").innerHTML=""; $("out").querySelector("tbody").innerHTML=""; }
