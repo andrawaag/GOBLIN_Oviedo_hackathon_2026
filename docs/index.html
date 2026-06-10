@@ -13,64 +13,64 @@
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:21px}
   .deck{position:fixed;inset:0}
   .slide{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:auto;
-         padding:46px 56px 70px;transition:opacity .25s ease}
+         padding:30px 48px 64px;transition:opacity .25s ease}
   .slide.active{opacity:1;pointer-events:auto}
-  .wrap{max-width:1080px;margin:0 auto}
-  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  h1{font-size:40px;line-height:1.1;margin:10px 0 8px;font-weight:750}
+  .wrap{max-width:1220px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:60px;line-height:1.1;margin:10px 0 8px;font-weight:750}
   h1 .star{color:var(--star)} h1 .graph{color:var(--graph)}
-  h2{font-size:27px;margin:0 0 18px;font-weight:700}
-  h2 .tag{font-family:var(--mono);font-size:13px;color:var(--accent2);border:1px solid var(--line);
+  h2{font-size:40px;margin:0 0 18px;font-weight:700}
+  h2 .tag{font-family:var(--mono);font-size:20px;color:var(--accent2);border:1px solid var(--line);
           border-radius:6px;padding:2px 9px;margin-right:10px;vertical-align:middle}
-  .sub{color:var(--muted);font-size:17px}
-  p{color:#cdd6e0;font-size:15.5px;line-height:1.55;margin:0 0 12px}
+  .sub{color:var(--muted);font-size:26px}
+  p{color:#cdd6e0;font-size:23px;line-height:1.55;margin:0 0 12px}
   code{font-family:var(--mono);background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:.88em;color:var(--accent2)}
   pre{font-family:var(--mono);background:var(--panel);border:1px solid var(--line);border-radius:10px;
-      padding:14px 16px;overflow:auto;font-size:12.5px;color:#c9d3de;margin:0 0 12px}
+      padding:14px 16px;overflow:auto;font-size:19px;color:#c9d3de;margin:0 0 12px}
   pre .c{color:#6e7b8a}.k{color:var(--graph)}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
   .card.g{border-top:3px solid var(--graph)} .card.s{border-top:3px solid var(--star)}
-  .card h3{margin:0 0 4px;font-size:16px} .card .t{font-family:var(--mono);font-size:11px;color:var(--muted)}
-  .card ul{margin:10px 0 0;padding-left:18px} .card li{margin:5px 0;font-size:13.5px;color:#cdd6e0}
+  .card h3{margin:0 0 4px;font-size:24px} .card .t{font-family:var(--mono);font-size:16px;color:var(--muted)}
+  .card ul{margin:10px 0 0;padding-left:18px} .card li{margin:5px 0;font-size:20px;color:#cdd6e0}
   .card li b{color:var(--ink)}
-  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-bottom:12px}
+  table{border-collapse:collapse;width:100%;font-size:20px;margin-bottom:12px}
   th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
   th{color:var(--accent2);font-family:var(--mono);font-weight:600}
   th.gcol{color:var(--graph)} th.scol{color:var(--star)}
   .insight{background:linear-gradient(90deg,rgba(210,168,255,.10),rgba(255,166,87,.10));
-           border:1px solid var(--line);border-radius:12px;padding:13px 17px;font-size:15px}
+           border:1px solid var(--line);border-radius:12px;padding:13px 17px;font-size:22px}
   .insight b{color:var(--accent)}
   .stats{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0}
   .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:120px}
-  .stat .v{font-size:25px;font-weight:700;font-family:var(--mono)} .stat .l{font-size:12px;color:var(--muted)}
-  .pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 9px;border-radius:20px;border:1px solid var(--line)}
+  .stat .v{font-size:38px;font-weight:700;font-family:var(--mono)} .stat .l{font-size:18px;color:var(--muted)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:16px;padding:2px 9px;border-radius:20px;border:1px solid var(--line)}
   .done{color:var(--accent);border-color:#2c5}.future{color:var(--warn);border-color:#7a6}
   .mermaid{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
   .two{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:start}
-  .note{font-size:12.5px;color:var(--warn);font-family:var(--mono);margin:6px 0}
+  .note{font-size:19px;color:var(--warn);font-family:var(--mono);margin:6px 0}
   a{color:var(--accent2)} .muted{color:var(--muted)}
-  .demo label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px;font-family:var(--mono)}
+  .demo label{display:block;font-size:18px;color:var(--muted);margin:8px 0 4px;font-family:var(--mono)}
   .demo input,.demo textarea,.demo select{width:100%;background:var(--bg);color:var(--ink);
-    border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:var(--mono);font-size:12px}
+    border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:var(--mono);font-size:18px}
   .demo textarea{min-height:96px;resize:vertical}
   .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
   button{background:var(--accent);color:#06210d;border:0;border-radius:8px;padding:9px 16px;font-weight:700;cursor:pointer}
   button.ghost{background:transparent;color:var(--accent2);border:1px solid var(--line);font-weight:600}
-  #status{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  #status{font-family:var(--mono);font-size:18px;color:var(--muted)}
   .results{margin-top:10px;overflow:auto;max-height:200px;border:1px solid var(--line);border-radius:8px}
-  .results th{position:sticky;top:0;background:var(--panel2)} .results td{font-family:var(--mono);font-size:11.5px;max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .results th{position:sticky;top:0;background:var(--panel2)} .results td{font-family:var(--mono);font-size:17px;max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   /* chrome */
   .nav{position:fixed;bottom:16px;right:20px;display:flex;gap:8px;align-items:center;z-index:10}
   .nav button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);padding:6px 12px;font-weight:600}
-  .count{position:fixed;bottom:20px;left:24px;font-family:var(--mono);font-size:12px;color:var(--muted);z-index:10}
+  .count{position:fixed;bottom:20px;left:24px;font-family:var(--mono);font-size:18px;color:var(--muted);z-index:10}
   .dots{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}
   .dot.on{background:var(--accent)}
-  .brand{position:fixed;top:14px;right:22px;font-family:var(--mono);font-size:11px;color:var(--muted);z-index:10}
+  .brand{position:fixed;top:14px;right:22px;font-family:var(--mono);font-size:16px;color:var(--muted);z-index:10}
 </style>
 </head>
 <body>
@@ -83,7 +83,7 @@
     <h1>SSSOM → RDF<br><span class="graph">Named graphs</span> &amp; <span class="star">RDF&nbsp;1.2</span></h1>
     <p class="sub">Rendering ontology mappings as two complementary RDF serializations,
        served with Oxigraph and browsed with Comunica.</p>
-    <p style="margin-top:22px;font-size:13.5px;color:#cdd6e0;line-height:1.7">
+    <p style="margin-top:22px;font-size:20px;color:#cdd6e0;line-height:1.7">
        Andra Waagmeester
        <a href="https://orcid.org/0000-0001-9773-4008">0000-0001-9773-4008</a>
        <span class="muted">· Amsterdam UMC</span> &nbsp;·&nbsp;
@@ -96,7 +96,7 @@
        Thomas Pellissier Tanon</p>
     <p class="note" style="margin-top:14px">⚠ First draft / proposal — serializer generated by
        prompting an LLM (Claude); outputs need validation &amp; some IRIs need minting (see last slide).</p>
-    <p class="muted" style="margin-top:14px;font-size:13px">← → arrows to navigate</p>
+    <p class="muted" style="margin-top:14px;font-size:20px">← → arrows to navigate</p>
   </div></section>
 
   <!-- 2 — SSSOM -->
@@ -113,7 +113,7 @@
 <span class="c">#   DOID:  http://purl.obolibrary.org/obo/DOID_</span>
 subject_id     predicate_id        object_id  mapping_justification       <span class="c">← TSV table</span>
 MONDO:0000001  oboInOwl:hasDbXref  DOID:4     semapv:UnspecifiedMatching</pre>
-    <p class="muted" style="font-size:13.5px">A streaming serializer (<b>generated by prompting an
+    <p class="muted" style="font-size:20px">A streaming serializer (<b>generated by prompting an
        LLM — Claude</b>) parses the YAML header, expands every CURIE to a full IRI, percent-encodes
        local parts (SMILES/InChI safety), and emits RDF. First draft — see caveats on the last slide.</p>
   </div></section>
@@ -155,7 +155,7 @@ flowchart LR
   MS -.->|"graph name ≡ set IRI"| NG
       </div>
       <div>
-        <p class="muted" style="font-size:13px">Valid <b>ShEx</b> — the per-set resource and the mapped
+        <p class="muted" style="font-size:20px">Valid <b>ShEx</b> — the per-set resource and the mapped
            term. (The graph grouping itself is dataset-level, not expressible in ShEx.)</p>
         <pre><span class="k">PREFIX</span> sssom: &lt;https://w3id.org/sssom/&gt;
 <span class="k">PREFIX</span> skos:  &lt;http://www.w3.org/2004/02/skos/core#&gt;
@@ -207,7 +207,7 @@ flowchart TB
   sssom:object_label   xsd:string ? ;
   sssom:mapping_set    @&lt;MappingSetShape&gt;
 }</pre>
-        <p class="muted" style="font-size:12.5px">Each mapping triple is asserted <i>and</i> annotated:
+        <p class="muted" style="font-size:19px">Each mapping triple is asserted <i>and</i> annotated:
            a reifier links to the opaque triple term and hangs the per-mapping metadata.</p>
       </div>
     </div>
@@ -219,20 +219,20 @@ flowchart TB
     <div class="grid2">
       <div class="card">
         <h3><span class="pill done">DONE</span> &nbsp;EBI OLS</h3>
-        <p class="muted" style="font-size:14px">OLS4 publishes per-ontology SSSOM extracts. Full set
+        <p class="muted" style="font-size:21px">OLS4 publishes per-ontology SSSOM extracts. Full set
            rendered into both formats.</p>
         <div class="stats">
           <div class="stat"><div class="v">271</div><div class="l">mapping sets</div></div>
           <div class="stat"><div class="v">6.24M</div><div class="l">mappings</div></div>
           <div class="stat"><div class="v">~91s</div><div class="l">both formats</div></div>
         </div>
-        <p class="muted" style="font-size:13px">TriG 1.5 GB · Turtle 1.2 3.7 GB → in repo via Git LFS (87 / 204 MB gz).</p>
+        <p class="muted" style="font-size:20px">TriG 1.5 GB · Turtle 1.2 3.7 GB → in repo via Git LFS (87 / 204 MB gz).</p>
       </div>
       <div class="card">
         <h3><span class="pill future">FUTURE WORK</span> &nbsp;Wikidata</h3>
-        <p class="muted" style="font-size:14px">Began extracting ontology cross-references from
+        <p class="muted" style="font-size:21px">Began extracting ontology cross-references from
            <b>Wikidata</b> as SSSOM; not finished in time.</p>
-        <p class="muted" style="font-size:13px">Comunica <b>federation</b> makes the join natural:
+        <p class="muted" style="font-size:20px">Comunica <b>federation</b> makes the join natural:
            query local Oxigraph <i>and</i> the Wikidata endpoint together.</p>
       </div>
     </div>
@@ -246,12 +246,12 @@ flowchart TB
        across endpoints. Our demo runs <b>both engines entirely client-side</b> over a bundled sample —
        no server, no endpoint, no download.</p>
     <div class="card" style="text-align:center;padding:26px">
-      <p style="font-size:16px;margin-bottom:16px">▶ Self-contained, in-browser SPARQL playground —
+      <p style="font-size:24px;margin-bottom:16px">▶ Self-contained, in-browser SPARQL playground —
          pick Oxigraph (WASM) or Comunica, named graphs or RDF 1.2:</p>
       <a href="demo.html" style="display:inline-block;background:var(--accent);color:#06210d;
-         font-weight:700;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:15px">
+         font-weight:700;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:22px">
          Open the live demo →</a>
-      <p class="muted" style="font-size:12.5px;margin-top:16px">For the full 5 GB renderings (271 sets /
+      <p class="muted" style="font-size:19px;margin-top:16px">For the full 5 GB renderings (271 sets /
          6.24 M mappings), load them into a real Oxigraph endpoint and query with Comunica — see
          <a href="../OXIGRAPH.md">OXIGRAPH.md</a>.</p>
     </div>
@@ -275,7 +275,7 @@ flowchart TB
           slots (license, mapping_date) &amp; extension_definitions not yet emitted by the script.</li>
       </ul>
     </div>
-    <p class="muted" style="font-size:13px;margin-top:10px">Full write-up:
+    <p class="muted" style="font-size:20px;margin-top:10px">Full write-up:
        <a href="../docs/approach.md">docs/approach.md</a></p>
   </div></section>
 
@@ -285,14 +285,14 @@ flowchart TB
     <p>✅ SSSOM (TSV+YAML) → <span class="graph">named graphs</span> <b>and</b> <span class="star">RDF 1.2</span>,
        both validated · 271 OLS sets / 6.24M mappings · schemas drawn (ShEx + ShEx-style) ·
        served via Oxigraph, queried via Comunica · 🔭 Wikidata next.</p>
-    <ul style="font-size:15px;line-height:2">
+    <ul style="font-size:22px;line-height:2">
       <li>🐙 <a href="https://github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026">github.com/andrawaag/GOBLIN_Oviedo_hackathon_2026</a></li>
       <li>📦 Data (Git LFS): see <a href="../data/README.md">data/README.md</a></li>
       <li>⚙️ <a href="../OXIGRAPH.md">OXIGRAPH.md</a> · 🔎 <a href="../COMUNICA.md">COMUNICA.md</a></li>
       <li>📐 Schemas: <a href="../docs/schema-named-graphs.md">named graphs</a> · <a href="../docs/schema-rdf12.md">RDF 1.2</a></li>
       <li>📝 Approach &amp; caveats: <a href="../docs/approach.md">docs/approach.md</a></li>
     </ul>
-    <p class="muted" style="font-size:12.5px;margin-top:6px">Andra Waagmeester (Amsterdam UMC) ·
+    <p class="muted" style="font-size:19px;margin-top:6px">Andra Waagmeester (Amsterdam UMC) ·
        Jerven Bolleman (SIB) · Ruben Taelman (IDLab, Ghent University) · Thomas Pellissier Tanon
        — first draft, LLM-assisted, for discussion.</p>
   </div></section>
@@ -306,7 +306,7 @@ flowchart TB
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
   if (window.mermaid) mermaid.initialize({startOnLoad:true, theme:'dark',
-    themeVariables:{fontFamily:'SF Mono, monospace', fontSize:'13px',
+    themeVariables:{fontFamily:'SF Mono, monospace', fontSize:'20px',
       primaryColor:'#1c2330', primaryBorderColor:'#2b3441', primaryTextColor:'#e6edf3',
       lineColor:'#6e7b8a', tertiaryColor:'#161b22'}});
 
