@@ -22,7 +22,7 @@ RDF serializations, then serves them for SPARQL querying via
 
 _(ORCID iDs / affiliations to be confirmed — see `CITATION.cff`.)_
 
-👉 **Slides:** [`docs/index.html`](docs/index.html) · **Live in-browser SPARQL demo:**
+👉 **Slides:** [`docs/index.html`](docs/index.html) ([PDF](docs/slides.pdf)) · **Live in-browser SPARQL demo:**
 [`docs/demo.html`](docs/demo.html) — runs **both Oxigraph (WebAssembly) and Comunica entirely in
 your browser** over a bundled sample. No server, no endpoint, no download.
 (Published via GitHub Pages: <https://andrawaag.github.io/GOBLIN_Oviedo_hackathon_2026/demo.html>)
@@ -79,7 +79,9 @@ Turtle 1.2 file is the lossless, per-mapping master.
 ## Repository layout
 
 ```
-docs/index.html              Slide deck + live Comunica demo
+docs/index.html              Slide deck (CC BY 4.0)
+docs/slides.pdf              PDF export of the deck  ·  docs/make-pdf.sh regenerates it
+docs/demo.html               Self-contained in-browser SPARQL (Oxigraph WASM + Comunica)
 docs/approach.md             RDF 1.2 approach, design decisions & caveats
 docs/schema-named-graphs.md  Schema (mermaid + ShEx) for the TriG rendering
 docs/schema-rdf12.md         Schema (mermaid + ShEx-style) for the RDF 1.2 rendering
@@ -132,5 +134,8 @@ Details and the full rationale are in [`docs/approach.md`](docs/approach.md).
 
 ## License
 
-Code: MIT. Rendered mappings inherit the licenses of their upstream sources (OLS / the
-individual ontologies).
+- **Code** (`scripts/`, demo JavaScript): **MIT** — see [`LICENSE`](LICENSE).
+- **Slides, documentation & figures** (`docs/`, the `*.md` files): **CC BY 4.0** —
+  <https://creativecommons.org/licenses/by/4.0/>. Reuse with attribution.
+- **Rendered mappings** (`data/`): inherit the licenses of their upstream sources
+  (OLS / the individual ontologies).

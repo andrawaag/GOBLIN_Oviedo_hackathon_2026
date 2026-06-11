@@ -71,6 +71,21 @@
   .dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}
   .dot.on{background:var(--accent)}
   .brand{position:fixed;top:14px;right:22px;font-family:var(--mono);font-size:16px;color:var(--muted);z-index:10}
+
+  /* PDF export: lay out every slide as its own landscape page */
+  @media print {
+    @page { size: 1280px 724px; margin: 0; }   /* 4px slack avoids a trailing blank page */
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    html,body{ height:auto !important; background:var(--bg) !important; }
+    .deck{ position:static !important; }
+    .slide{ position:relative !important; inset:auto !important; opacity:1 !important;
+            display:block !important; width:1280px; height:720px; overflow:hidden;
+            background:var(--bg); transition:none !important; }
+    /* break BEFORE each slide after the first -> exactly one page per slide, no trailing blank */
+    .slide + .slide{ break-before:page; page-break-before:always; }
+    .nav,.count,.dots{ display:none !important; }
+    .brand{ position:absolute; }
+  }
 </style>
 </head>
 <body>
@@ -298,9 +313,9 @@ flowchart TB
     <p style="margin-top:14px;font-size:18px;color:#cdd6e0">
        <span style="border:1px solid var(--line);border-radius:6px;padding:3px 10px;
          font-family:var(--mono);font-size:15px;color:var(--accent)">CC&nbsp;BY&nbsp;4.0</span>
-       &nbsp;© 2026 Waagmeester, Bolleman, Taelman &amp; Pellissier Tanon. These slides are licensed
-       under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
-       International License</a> — you may share and adapt them, with attribution.</p>
+       &nbsp;© 2026 Waagmeester, Bolleman, Taelman &amp; Pellissier Tanon. Slides &amp; documentation:
+       <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
+       International (CC BY 4.0)</a>. Code: <b>MIT</b>. Reuse with attribution.</p>
   </div></section>
 
 </div>
